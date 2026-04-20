@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — TGIsmE · Quantumgrowth Capital</title>
+<meta name="description" content="Contact TGISME Capital Advisors LLP — investor briefings, SME submissions, and general enquiries. Mumbai and Ahmedabad offices.">
+<meta name="theme-color" content="#09A14A">
+<link rel="icon" href="./logo.png" type="image/png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: {
+    colors: { brand:'#2A3794', brandDk:'#1E2873', growth:'#09A14A', growthDk:'#077A38', accent:'#F69322', accentDk:'#DA7A14', ink:'#1C1D2D', graphite:'#1F2937', slate600:'#4B5563', slate500:'#64748B', hairline:'#E5E7EB', paper:'#F8F6F2' },
+    fontFamily: { display:['"Montserrat"','system-ui','sans-serif'], sans:['"Inter"','system-ui','sans-serif'] },
+    maxWidth: { container:'1240px', narrow:'880px' },
+    borderRadius: { card:'12px', btn:'4px' },
+  }}}
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', system-ui, sans-serif; color: #1C1D2D; background: #F8F6F2; -webkit-font-smoothing: antialiased; }
+  main { background: #FFFFFF; }
+  .font-display { font-family: 'Montserrat', sans-serif; letter-spacing: -0.015em; }
+  .num { font-variant-numeric: tabular-nums; }
+  :focus-visible { outline: 2px solid #09A14A; outline-offset: 2px; border-radius: 2px; }
+  ::selection { background: #09A14A; color: #fff; }
+  .section-index { font-family: 'Montserrat'; font-size: 11px; font-weight: 500; letter-spacing: 0.24em; color: #64748B; text-transform: uppercase; }
+  .section-index::before { content: '—'; margin-right: 10px; color: #09A14A; }
+  .progress-rail { position: fixed; top: 0; left: 0; height: 2px; background: linear-gradient(90deg,#2A3794 0%,#09A14A 50%,#F69322 100%); z-index: 60; width: 0; transition: width 80ms linear; }
+  .fade-up { opacity: 0; transform: translateY(14px); transition: opacity 300ms ease-out, transform 300ms ease-out; }
+  .fade-up.in { opacity: 1; transform: translateY(0); }
+  .nav-link { position: relative; padding-bottom: 4px; }
+  .nav-link::after { content: ''; position: absolute; left: 0; right: 0; bottom: -2px; height: 2px; background: #09A14A; transform: scaleX(0); transform-origin: left; transition: transform 260ms ease-out; }
+  .nav-link[aria-current="page"]::after { transform: scaleX(1); }
+  .nav-link:hover::after { transform: scaleX(0.4); }
+  .elev { background:#fff; border:1px solid #E5E7EB; border-radius:12px; position:relative; overflow:hidden; box-shadow: 0 1px 2px rgba(28,29,45,0.04), 0 12px 28px rgba(28,29,45,0.06); transition: transform 280ms ease-out, box-shadow 280ms ease-out; }
+  .elev::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background: var(--stripe, #09A14A); z-index: 2; }
+  .elev:hover { transform: translateY(-4px); box-shadow: 0 4px 10px rgba(28,29,45,0.06), 0 24px 48px rgba(28,29,45,0.10); }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .fade-up { opacity: 1; transform: none; transition: none; }
+    .progress-rail { transition: none; }
+    *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  }
+</style>
+</head>
+<body class="bg-paper text-ink antialiased">
+
+<div class="progress-rail" id="progressRail" aria-hidden="true"></div>
+<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[70] focus:bg-growth focus:text-white focus:px-4 focus:py-2 focus:rounded-btn">Skip to content</a>
+
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-hairline">
+  <div class="max-w-container mx-auto px-6 lg:px-8 h-[72px] flex items-center justify-between gap-6">
+    <a href="tgisme.html" class="flex items-center shrink-0"><img src="./logo.png" alt="TGIsmE Capital Advisors LLP" class="h-9 md:h-10 w-auto"></a>
+    <nav class="hidden lg:flex items-center gap-7 xl:gap-9 text-[13px] font-medium text-graphite" aria-label="Primary">
+      <a href="tgisme.html" class="nav-link hover:text-ink">Home</a>
+      <a href="investors.html" class="nav-link hover:text-ink">For Investors</a>
+      <a href="smes.html" class="nav-link hover:text-ink">For SMEs</a>
+      <a href="approach.html" class="nav-link hover:text-ink">Our Approach</a>
+      <a href="portfolio.html" class="nav-link hover:text-ink">Portfolio</a>
+      <a href="insights.html" class="nav-link hover:text-ink">Insights</a>
+      <a href="about.html" class="nav-link hover:text-ink">About</a>
+      <a href="contact.html" class="nav-link hover:text-ink" aria-current="page">Contact</a>
+    </nav>
+    <div class="flex items-center gap-2 shrink-0">
+      <a href="tel:+919662774547" class="hidden md:inline-flex items-center gap-2 bg-growth text-white text-[13px] font-semibold px-4 py-2.5 rounded-btn hover:bg-growthDk transition-colors num">+91 96627 74547</a>
+      <a href="tel:+919662774547" class="md:hidden inline-flex items-center gap-2 bg-growth text-white text-[12px] font-semibold px-3 py-2 rounded-btn">Call</a>
+      <button id="menuBtn" class="lg:hidden p-2 text-ink" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+  <div id="mobileNav" class="lg:hidden hidden border-t border-hairline bg-white">
+    <nav class="px-6 py-5 flex flex-col gap-4 text-[15px] font-medium">
+      <a href="tgisme.html">Home</a>
+      <a href="investors.html">For Investors</a>
+      <a href="smes.html">For SMEs</a>
+      <a href="approach.html">Our Approach</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="insights.html">Insights</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="text-growth">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- Hero -->
+<section class="bg-white">
+  <div class="max-w-container mx-auto px-6 lg:px-8 pt-16 lg:pt-24 pb-12">
+    <div class="max-w-narrow">
+      <div class="section-index fade-up">Contact</div>
+      <h1 class="font-display text-[40px] leading-[1.05] sm:text-[52px] lg:text-[64px] xl:text-[72px] xl:leading-[1.03] font-semibold tracking-[-0.02em] text-brand mt-5">
+        Let's talk.
+      </h1>
+      <p class="mt-8 text-[17px] lg:text-[19px] leading-[1.65] text-graphite max-w-[62ch] fade-up">
+        Three routes in: one for investors, one for SMEs, one for everything else. Choose the channel that fits — the right person will get back to you.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Three channels -->
+<section aria-labelledby="channels" class="bg-white border-t border-hairline">
+  <div class="max-w-container mx-auto px-6 lg:px-8 py-16 lg:py-20">
+    <h2 id="channels" class="sr-only">Contact channels</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+      <a href="investors.html#request" class="elev p-8 lg:p-10 fade-up group block" style="--stripe:#2A3794">
+        <div class="text-[11px] tracking-[0.18em] uppercase text-brand font-semibold">For investors</div>
+        <h3 class="font-display text-[24px] lg:text-[28px] leading-[1.15] font-semibold text-ink mt-4 tracking-[-0.015em] group-hover:text-brand transition-colors">Request the IM</h3>
+        <p class="mt-4 text-[14px] leading-[1.7] text-graphite">HNIs, family offices, and institutional LPs — schedule a briefing with the investment team.</p>
+        <span class="mt-6 inline-flex items-center gap-2 text-brand font-semibold">
+          Start the conversation
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+      <a href="smes.html#submit" class="elev p-8 lg:p-10 fade-up group block" style="--stripe:#F69322">
+        <div class="text-[11px] tracking-[0.18em] uppercase text-accent font-semibold">For SMEs</div>
+        <h3 class="font-display text-[24px] lg:text-[28px] leading-[1.15] font-semibold text-ink mt-4 tracking-[-0.015em] group-hover:text-accent transition-colors">Submit your deck</h3>
+        <p class="mt-4 text-[14px] leading-[1.7] text-graphite">Founders and promoters seeking growth or pre-IPO capital — send a deck for review.</p>
+        <span class="mt-6 inline-flex items-center gap-2 text-accent font-semibold">
+          Share your business
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+      <a href="#general" class="elev p-8 lg:p-10 fade-up group block" style="--stripe:#09A14A">
+        <div class="text-[11px] tracking-[0.18em] uppercase text-growth font-semibold">General</div>
+        <h3 class="font-display text-[24px] lg:text-[28px] leading-[1.15] font-semibold text-ink mt-4 tracking-[-0.015em] group-hover:text-growth transition-colors">Press &amp; partnerships</h3>
+        <p class="mt-4 text-[14px] leading-[1.7] text-graphite">Media, intermediaries, regulators, and service providers — use the form below.</p>
+        <span class="mt-6 inline-flex items-center gap-2 text-growth font-semibold">
+          Send a message
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Offices -->
+<section aria-labelledby="offices" class="bg-paper border-y border-hairline">
+  <div class="max-w-container mx-auto px-6 lg:px-8 py-20 lg:py-24">
+    <div class="max-w-narrow fade-up">
+      <div class="section-index">01 · Offices</div>
+      <h2 id="offices" class="font-display text-[30px] lg:text-[40px] leading-[1.1] font-semibold text-brand mt-5 tracking-[-0.02em]">
+        Two offices, one team.
+      </h2>
+    </div>
+
+    <div class="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+      <article class="elev p-8 lg:p-10 fade-up" style="--stripe:#2A3794">
+        <div class="flex items-center justify-between gap-4">
+          <div>
+            <div class="text-[11px] tracking-[0.18em] uppercase text-brand font-semibold">Corporate office</div>
+            <h3 class="font-display text-[26px] lg:text-[32px] leading-[1.15] font-semibold text-ink mt-3 tracking-[-0.015em]">Mumbai</h3>
+          </div>
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true" class="shrink-0 text-brand">
+            <path d="M20 36c8-8 12-14 12-20a12 12 0 1 0-24 0c0 6 4 12 12 20Z" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="20" cy="16" r="4" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <address class="not-italic mt-6 text-[16px] leading-[1.8] text-graphite">
+          1404, Lodha Supremus,<br>
+          Senapati Bapat Marg,<br>
+          Lower Parel, Mumbai 400013<br>
+          Maharashtra, India
+        </address>
+        <dl class="mt-7 grid grid-cols-2 gap-4 text-[13px]">
+          <div>
+            <dt class="text-[10px] tracking-[0.16em] uppercase text-slate500 font-semibold">Phone</dt>
+            <dd class="mt-1.5"><a href="tel:+919662774547" class="text-brand font-semibold hover:text-growth transition-colors num">+91 96627 74547</a></dd>
+          </div>
+          <div>
+            <dt class="text-[10px] tracking-[0.16em] uppercase text-slate500 font-semibold">Email</dt>
+            <dd class="mt-1.5"><a href="mailto:finance@tgisme.com" class="text-brand font-semibold hover:text-growth transition-colors">finance@tgisme.com</a></dd>
+          </div>
+        </dl>
+      </article>
+
+      <article class="elev p-8 lg:p-10 fade-up" style="--stripe:#F69322">
+        <div class="flex items-center justify-between gap-4">
+          <div>
+            <div class="text-[11px] tracking-[0.18em] uppercase text-accent font-semibold">Registered office</div>
+            <h3 class="font-display text-[26px] lg:text-[32px] leading-[1.15] font-semibold text-ink mt-3 tracking-[-0.015em]">Ahmedabad</h3>
+          </div>
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true" class="shrink-0 text-accent">
+            <path d="M20 36c8-8 12-14 12-20a12 12 0 1 0-24 0c0 6 4 12 12 20Z" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="20" cy="16" r="4" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <address class="not-italic mt-6 text-[16px] leading-[1.8] text-graphite">
+          A-41, Corporate House,<br>
+          Bodakdev, S.G. Highway,<br>
+          Ahmedabad 380054<br>
+          Gujarat, India
+        </address>
+        <dl class="mt-7 grid grid-cols-2 gap-4 text-[13px]">
+          <div>
+            <dt class="text-[10px] tracking-[0.16em] uppercase text-slate500 font-semibold">Phone</dt>
+            <dd class="mt-1.5"><a href="tel:+919662774547" class="text-brand font-semibold hover:text-growth transition-colors num">+91 96627 74547</a></dd>
+          </div>
+          <div>
+            <dt class="text-[10px] tracking-[0.16em] uppercase text-slate500 font-semibold">Email</dt>
+            <dd class="mt-1.5"><a href="mailto:finance@tgisme.com" class="text-brand font-semibold hover:text-growth transition-colors">finance@tgisme.com</a></dd>
+          </div>
+        </dl>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- General contact form -->
+<section id="general" class="bg-ink text-white relative">
+  <span class="absolute top-0 left-0 h-[4px] w-full" style="background: linear-gradient(90deg,#2A3794 0%,#09A14A 50%,#F69322 100%);" aria-hidden="true"></span>
+  <div class="max-w-container mx-auto px-6 lg:px-8 py-20 lg:py-24 grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+    <div class="lg:col-span-6 fade-up">
+      <div class="section-index" style="color:#9AA3C6;">02 · General enquiries</div>
+      <h2 class="font-display text-[30px] sm:text-[38px] lg:text-[48px] leading-[1.1] font-semibold mt-5 tracking-[-0.015em]">
+        Write to us.
+      </h2>
+      <p class="mt-6 text-[16px] lg:text-[17px] leading-[1.7] text-white/75 max-w-[52ch]">
+        For press, partnerships, intermediary enquiries, and anything that isn't an investor brief or an SME pitch — we read every message.
+      </p>
+      <dl class="mt-10 space-y-6">
+        <div>
+          <dt class="text-[11px] tracking-[0.18em] uppercase text-growth font-semibold">Email</dt>
+          <dd class="mt-2"><a href="mailto:finance@tgisme.com" class="font-display text-[22px] lg:text-[26px] font-semibold text-white hover:text-growth transition-colors">finance@tgisme.com</a></dd>
+        </div>
+        <div>
+          <dt class="text-[11px] tracking-[0.18em] uppercase text-accent font-semibold">Phone</dt>
+          <dd class="mt-2"><a href="tel:+919662774547" class="font-display text-[22px] lg:text-[26px] font-semibold text-white hover:text-accent transition-colors num">+91 96627 74547</a></dd>
+        </div>
+        <div>
+          <dt class="text-[11px] tracking-[0.18em] uppercase font-semibold" style="color:#8C96CF">Office hours</dt>
+          <dd class="mt-2 text-white/80 text-[15px]">Monday – Friday · 10:00 – 18:30 IST</dd>
+        </div>
+      </dl>
+    </div>
+
+    <div class="lg:col-span-6 fade-up">
+      <form class="elev bg-white text-ink p-7 lg:p-9 space-y-5" style="--stripe:#09A14A" aria-label="General contact form">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="g-name" class="block text-[12px] tracking-[0.12em] uppercase text-slate500 font-semibold">Full name</label>
+            <input id="g-name" type="text" class="mt-2 w-full border border-hairline rounded-btn px-3.5 py-3 text-[15px] focus:border-growth outline-none">
+          </div>
+          <div>
+            <label for="g-org" class="block text-[12px] tracking-[0.12em] uppercase text-slate500 font-semibold">Organisation</label>
+            <input id="g-org" type="text" class="mt-2 w-full border border-hairline rounded-btn px-3.5 py-3 text-[15px] focus:border-growth outline-none">
+          </div>
+        </div>
+        <div>
+          <label for="g-email" class="block text-[12px] tracking-[0.12em] uppercase text-slate500 font-semibold">Email</label>
+          <input id="g-email" type="email" class="mt-2 w-full border border-hairline rounded-btn px-3.5 py-3 text-[15px] focus:border-growth outline-none">
+        </div>
+        <div>
+          <label for="g-topic" class="block text-[12px] tracking-[0.12em] uppercase text-slate500 font-semibold">I am writing about</label>
+          <select id="g-topic" class="mt-2 w-full border border-hairline rounded-btn px-3.5 py-3 text-[15px] focus:border-growth outline-none bg-white">
+            <option>Press &amp; media</option>
+            <option>Intermediary partnership</option>
+            <option>Service provider enquiry</option>
+            <option>Regulatory / compliance</option>
+            <option>General enquiry</option>
+          </select>
+        </div>
+        <div>
+          <label for="g-msg" class="block text-[12px] tracking-[0.12em] uppercase text-slate500 font-semibold">Message</label>
+          <textarea id="g-msg" rows="5" class="mt-2 w-full border border-hairline rounded-btn px-3.5 py-3 text-[15px] focus:border-growth outline-none"></textarea>
+        </div>
+        <button type="submit" class="w-full inline-flex items-center justify-center gap-2 bg-growth text-white font-semibold px-6 py-3.5 rounded-btn hover:bg-growthDk transition-colors">
+          Send message
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <p class="text-[11px] leading-[1.6] text-slate500">
+          Submitting this form does not constitute an offer, solicitation, or advisory relationship. We respond to qualified enquiries only.
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Compliance -->
+<section class="bg-ink text-white border-t border-white/10">
+  <div class="max-w-container mx-auto px-6 lg:px-8 py-14 lg:py-16">
+    <p class="text-[12px] leading-[1.75] text-white/65 max-w-[98ch]">
+      <strong class="text-white/85 font-semibold">Disclaimer:</strong> Investments in Alternative Investment Funds are subject to market risks. Read all scheme-related documents carefully. TGISME Capital Advisors LLP operates under SEBI registration <span class="num">IN/AIF3/23-24/1473</span>; Scores ID <span class="num">aif01400</span>. Communications via this page do not constitute an offer, solicitation, or investment recommendation.
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer class="bg-ink text-white border-t border-white/10">
+  <div class="max-w-container mx-auto px-6 lg:px-8 pt-20 pb-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12">
+      <div class="lg:col-span-4">
+        <a href="tgisme.html" class="inline-block bg-white px-4 py-3 rounded-btn"><img src="./logo.png" alt="TGIsmE" class="h-10 w-auto"></a>
+        <p class="mt-6 text-[14px] leading-[1.7] text-white/65 max-w-[38ch]">A SEBI-registered Category III AIF investing in Indian small and medium enterprises. Managed by TGISME Capital Advisors LLP.</p>
+        <div class="mt-7 flex flex-col gap-2.5 text-[14px]">
+          <a href="tel:+919662774547" class="text-white hover:text-growth num">+91 96627 74547</a>
+          <a href="mailto:finance@tgisme.com" class="text-white hover:text-growth">finance@tgisme.com</a>
+        </div>
+      </div>
+      <div class="lg:col-span-3">
+        <div class="text-[11px] tracking-[0.18em] uppercase font-semibold" style="color:#8C96CF">Corporate office</div>
+        <address class="not-italic mt-4 text-[14px] leading-[1.75] text-white/75">1404, Lodha Supremus,<br>Senapati Bapat Marg,<br>Lower Parel, Mumbai 400013</address>
+      </div>
+      <div class="lg:col-span-3">
+        <div class="text-[11px] tracking-[0.18em] uppercase font-semibold" style="color:#F9B56C">Registered office</div>
+        <address class="not-italic mt-4 text-[14px] leading-[1.75] text-white/75">A-41, Corporate House,<br>Bodakdev, S.G. Highway,<br>Ahmedabad 380054</address>
+      </div>
+      <div class="lg:col-span-2">
+        <div class="text-[11px] tracking-[0.18em] uppercase text-growth font-semibold">Navigate</div>
+        <ul class="mt-4 space-y-2.5 text-[14px] text-white/75">
+          <li><a href="investors.html" class="hover:text-growth">For Investors</a></li>
+          <li><a href="smes.html" class="hover:text-growth">For SMEs</a></li>
+          <li><a href="approach.html" class="hover:text-growth">Our Approach</a></li>
+          <li><a href="portfolio.html" class="hover:text-growth">Portfolio</a></li>
+          <li><a href="insights.html" class="hover:text-growth">Insights</a></li>
+          <li><a href="about.html" class="hover:text-growth">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-16 border-t border-white/10 pt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-[12px] text-white/50">
+      <div class="num">© <span id="yr">2026</span> TGISME Capital Advisors LLP. All rights reserved.</div>
+      <div class="flex flex-wrap items-center gap-x-6 gap-y-2">
+        <a href="#" class="hover:text-growth">Privacy Policy</a>
+        <a href="#" class="hover:text-growth">Terms &amp; Conditions</a>
+        <a href="#" class="hover:text-growth">Risk Disclosure</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var yr=document.getElementById('yr'); if (yr) yr.textContent = new Date().getFullYear();
+  var btn=document.getElementById('menuBtn'), mNav=document.getElementById('mobileNav');
+  if (btn && mNav) btn.addEventListener('click', function(){ mNav.classList.toggle('hidden'); btn.setAttribute('aria-expanded', String(!mNav.classList.contains('hidden'))); });
+  var rail=document.getElementById('progressRail');
+  if (rail) window.addEventListener('scroll', function(){ var h=document.documentElement, m=h.scrollHeight-h.clientHeight; rail.style.width=(m>0?(h.scrollTop/m)*100:0)+'%'; }, {passive:true});
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold: 0.15 });
+    document.querySelectorAll('.fade-up').forEach(function(el){ io.observe(el); });
+  } else { document.querySelectorAll('.fade-up').forEach(function(el){ el.classList.add('in'); }); }
+})();
+</script>
+
+</body>
+</html>

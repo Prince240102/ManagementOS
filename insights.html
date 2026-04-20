@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Insights — TGIsmE · Quantumgrowth Capital</title>
+<meta name="description" content="Research, market notes, and founder interviews from TGIsmE Capital Advisors LLP — institutional reading on India's SME capital markets.">
+<meta name="theme-color" content="#09A14A">
+<link rel="icon" href="./logo.png" type="image/png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: {
+    colors: { brand:'#2A3794', brandDk:'#1E2873', growth:'#09A14A', growthDk:'#077A38', accent:'#F69322', accentDk:'#DA7A14', ink:'#1C1D2D', graphite:'#1F2937', slate600:'#4B5563', slate500:'#64748B', hairline:'#E5E7EB', paper:'#F8F6F2' },
+    fontFamily: { display:['"Montserrat"','system-ui','sans-serif'], sans:['"Inter"','system-ui','sans-serif'] },
+    maxWidth: { container:'1240px', narrow:'880px' },
+    borderRadius: { card:'12px', btn:'4px' },
+  }}}
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', system-ui, sans-serif; color: #1C1D2D; background: #F8F6F2; -webkit-font-smoothing: antialiased; }
+  main { background: #FFFFFF; }
+  .font-display { font-family: 'Montserrat', sans-serif; letter-spacing: -0.015em; }
+  .num { font-variant-numeric: tabular-nums; }
+  :focus-visible { outline: 2px solid #09A14A; outline-offset: 2px; border-radius: 2px; }
+  ::selection { background: #09A14A; color: #fff; }
+  .section-index { font-family: 'Montserrat'; font-size: 11px; font-weight: 500; letter-spacing: 0.24em; color: #64748B; text-transform: uppercase; }
+  .section-index::before { content: '—'; margin-right: 10px; color: #09A14A; }
+  .progress-rail { position: fixed; top: 0; left: 0; height: 2px; background: linear-gradient(90deg,#2A3794 0%,#09A14A 50%,#F69322 100%); z-index: 60; width: 0; transition: width 80ms linear; }
+  .fade-up { opacity: 0; transform: translateY(14px); transition: opacity 300ms ease-out, transform 300ms ease-out; }
+  .fade-up.in { opacity: 1; transform: translateY(0); }
+  .nav-link { position: relative; padding-bottom: 4px; }
+  .nav-link::after { content: ''; position: absolute; left: 0; right: 0; bottom: -2px; height: 2px; background: #09A14A; transform: scaleX(0); transform-origin: left; transition: transform 260ms ease-out; }
+  .nav-link[aria-current="page"]::after { transform: scaleX(1); }
+  .nav-link:hover::after { transform: scaleX(0.4); }
+  .elev { background:#fff; border:1px solid #E5E7EB; border-radius:12px; position:relative; overflow:hidden; box-shadow: 0 1px 2px rgba(28,29,45,0.04), 0 12px 28px rgba(28,29,45,0.06); transition: transform 280ms ease-out, box-shadow 280ms ease-out; }
+  .elev::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background: var(--stripe, #09A14A); z-index: 2; }
+  .elev:hover { transform: translateY(-4px); box-shadow: 0 4px 10px rgba(28,29,45,0.06), 0 24px 48px rgba(28,29,45,0.10); }
+  .title-underline { background-image: linear-gradient(#09A14A,#09A14A); background-size: 0% 2px; background-repeat: no-repeat; background-position: 0 100%; transition: background-size 280ms ease-out; padding-bottom: 2px; }
+  .group:hover .title-underline, .elev:hover .title-underline { background-size: 100% 2px; }
+  .chip { transition: background-color 220ms ease-out, color 220ms ease-out, border-color 220ms ease-out; }
+  .chip[aria-pressed="true"] { background: #09A14A; color: #fff; border-color: #09A14A; }
+  .insight-card.hide { display: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .fade-up { opacity: 1; transform: none; transition: none; }
+    .progress-rail { transition: none; }
+    *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  }
+</style>
+</head>
+<body class="bg-paper text-ink antialiased">
+
+<div class="progress-rail" id="progressRail" aria-hidden="true"></div>
+<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[70] focus:bg-growth focus:text-white focus:px-4 focus:py-2 focus:rounded-btn">Skip to content</a>
+
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-hairline">
+  <div class="max-w-container mx-auto px-6 lg:px-8 h-[72px] flex items-center justify-between gap-6">
+    <a href="tgisme.html" class="flex items-center shrink-0"><img src="./logo.png" alt="TGIsmE Capital Advisors LLP" class="h-9 md:h-10 w-auto"></a>
+    <nav class="hidden lg:flex items-center gap-7 xl:gap-9 text-[13px] font-medium text-graphite" aria-label="Primary">
+      <a href="tgisme.html" class="nav-link hover:text-ink">Home</a>
+      <a href="investors.html" class="nav-link hover:text-ink">For Investors</a>
+      <a href="smes.html" class="nav-link hover:text-ink">For SMEs</a>
+      <a href="approach.html" class="nav-link hover:text-ink">Our Approach</a>
+      <a href="portfolio.html" class="nav-link hover:text-ink">Portfolio</a>
+      <a href="insights.html" class="nav-link hover:text-ink" aria-current="page">Insights</a>
+      <a href="about.html" class="nav-link hover:text-ink">About</a>
+      <a href="contact.html" class="nav-link hover:text-ink">Contact</a>
+    </nav>
+    <div class="flex items-center gap-2 shrink-0">
+      <a href="investors.html" class="hidden md:inline-flex items-center gap-2 bg-growth text-white text-[13px] font-semibold px-4 py-2.5 rounded-btn hover:bg-growthDk transition-colors">Invest with us</a>
+      <button id="menuBtn" class="lg:hidden p-2 text-ink" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+  <div id="mobileNav" class="lg:hidden hidden border-t border-hairline bg-white">
+    <nav class="px-6 py-5 flex flex-col gap-4 text-[15px] font-medium">
+      <a href="tgisme.html">Home</a>
+      <a href="investors.html">For Investors</a>
+      <a href="smes.html">For SMEs</a>
+      <a href="approach.html">Our Approach</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="insights.html" class="text-growth">Insights</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- Hero -->
+<section class="bg-white">
+  <div class="max-w-container mx-auto px-6 lg:px-8 pt-16 lg:pt-24 pb-12">
+    <div class="max-w-narrow">
+      <div class="section-index fade-up">Insights</div>
+      <h1 class="font-display text-[40px] leading-[1.05] sm:text-[52px] lg:text-[64px] xl:text-[72px] xl:leading-[1.03] font-semibold tracking-[-0.02em] text-brand mt-5">
+        Notes from the desk.
+      </h1>
+      <p class="mt-8 text-[17px] lg:text-[19px] leading-[1.65] text-graphite max-w-[62ch] fade-up">
+        Research, market notes, and founder conversations from the TGIsmE investment team. Written for institutional readers, not search engines.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Featured -->
+<section aria-labelledby="featured" class="bg-white border-t border-hairline">
+  <div class="max-w-container mx-auto px-6 lg:px-8 py-16 lg:py-20">
+    <div class="flex items-end justify-between gap-6 fade-up">
+      <div class="section-index">01 · Featured</div>
+    </div>
+    <a href="#" class="group mt-8 block">
+      <article class="elev tri grid grid-cols-1 lg:grid-cols-12 gap-0 fade-up" style="--stripe:#F69322">
+        <div class="lg:col-span-6">
+          <!-- Photography note: editorial close-up, printed research, natural light. 4:3. -->
+          <img src="https://placehold.co/800x600/1C1D2D/F69322?text=Featured+Research" alt="Featured research cover" class="w-full h-full aspect-[4/3] lg:aspect-auto object-cover">
+        </div>
+        <div class="lg:col-span-6 p-8 lg:p-12 flex flex-col justify-center">
+          <div class="flex items-center gap-3 text-[11px] tracking-[0.18em] uppercase text-slate500 font-semibold">
+            <span class="text-accent">Research</span><span class="h-px w-6 bg-hairline"></span><span class="num">2026 · Q1</span><span class="h-px w-6 bg-hairline"></span><span class="num">15 min read</span>
+          </div>
+          <h2 id="featured" class="font-display text-[28px] sm:text-[34px] lg:text-[40px] leading-[1.12] font-semibold text-ink mt-5 tracking-[-0.015em]">
+            <span class="title-underline">Why the BSE SME platform is becoming a real asset class.</span>
+          </h2>
+          <p class="mt-5 text-[16px] leading-[1.7] text-graphite max-w-[58ch]">
+            A structural read on listing volumes, post-listing governance, and why institutional LPs are, for the first time, starting to underwrite the segment with discipline and size. Includes a deployment framework and diligence checklist.
+          </p>
+          <span class="mt-8 inline-flex items-center gap-2 text-brand font-semibold">
+            Read the note
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+      </article>
+    </a>
+  </div>
+</section>
+
+<!-- Filter + Archive -->
+<section aria-labelledby="archive" class="bg-paper border-y border-hairline">
+  <div class="max-w-container mx-auto px-6 lg:px-8 py-20 lg:py-24">
+    <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 fade-up">
+      <div>
+        <div class="section-index">02 · Archive</div>
+        <h2 id="archive" class="font-display text-[30px] sm:text-[38px] lg:text-[44px] leading-[1.08] font-semibold text-brand mt-5 tracking-[-0.02em]">
+          Everything we've published.
+        </h2>
+      </div>
+      <div class="flex flex-wrap gap-2" role="group" aria-label="Filter by category" id="insightFilters">
+        <button class="chip border border-hairline bg-white rounded-btn px-3.5 py-1.5 text-[11px] tracking-[0.1em] uppercase text-graphite font-semibold" data-filter="all" aria-pressed="true">All</button>
+        <button class="chip border border-hairline bg-white rounded-btn px-3.5 py-1.5 text-[11px] tracking-[0.1em] uppercase text-graphite font-semibold" data-filter="research" aria-pressed="false">Research</button>
+        <button class="chip border border-hairline bg-white rounded-btn px-3.5 py-1.5 text-[11px] tracking-[0.1em] uppercase text-graphite font-semibold" data-filter="market" aria-pressed="false">Market notes</button>
+        <button class="chip border border-hairline bg-white rounded-btn px-3.5 py-1.5 text-[11px] tracking-[0.1em] uppercase text-graphite font-semibold" data-filter="founder" aria-pressed="false">Founder interviews</button>
+        <button class="chip border border-hairline bg-white rounded-btn px-3.5 py-1.5 text-[11px] tracking-[0.1em] uppercase text-graphite font-semibold" data-filter="policy" aria-pressed="false">Policy</button>
+      </div>
+    </div>
+
+    <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8" id="insightGrid">
+      <a href="#" class="insight-card group block" data-cat="market">
+        <article class="elev fade-up h-full flex flex-col" style="--stripe:#09A14A">
+          <div><img src="https://placehold.co/640x400/F8F6F2/09A14A?text=Market+Note" alt="Market note cover" class="w-full aspect-[16/10] object-cover"></div>
+          <div class="p-6 flex-1 flex flex-col">
+            <div class="flex items-center gap-3 text-[11px] tracking-[0.18em] uppercase text-slate500 font-semibold">
+              <span class="text-growth">Market note</span><span class="h-px w-6 bg-hairline"></span><span class="num">2026 · 03</span>
+            </div>
+            <h3 class="font-display text-[19px] leading-[1.3] text-ink mt-4 font-semibold tracking-[-0.01em]">
+              <span class="title-underline">Three promoter archetypes worth underwriting.</span>
+            </h3>
+            <p class="mt-3 text-[14px] leading-[1.7] text-graphite">A field framework drawn from 200+ screened deals.</p>
+            <span class="mt-4 text-[12px] text-slate500 num">5 min read</span>
+          </div>
+        </article>
+      </a>
+
+      <a href="#" class="insight-card group block" data-cat="founder">
+        <article class="elev fade-up h-full flex flex-col" style="--stripe:#F69322">
+          <div><img src="https://placehold.co/640x400/1C1D2D/F69322?text=Founder+Interview" alt="Founder interview cover" class="w-full aspect-[16/10] object-cover"></div>
+          <div class="p-6 flex-1 flex flex-col">
+            <div class="flex items-center gap-3 text-[11px] tracking-[0.18em] uppercase text-slate500 font-semibold">
+              <span class="text-accent">Founder interview</span><span class="h-px w-6 bg-hairline"></span><span class="num">2026 · 02</span>
+            </div>
+            <h3 class="font-display text-[19px] leading-[1.3] text-ink mt-4 font-semibold tracking-[-0.01em]">
+              <span class="title-underline">&ldquo;The board meeting changed everything.&rdquo; A promoter's year under institutional capital.</span>
+            </h3>
+            <p class="mt-3 text-[14px] leading-[1.7] text-graphite">A candid conversation on governance and succession.</p>
+            <span class="mt-4 text-[12px] text-slate500 num">12 min read</span>
+          </div>
+        </article>
+      </a>
+
+      <a href="#" class="insight-card group block" data-cat="research">
+        <article class="elev fade-up h-full flex flex-col" style="--stripe:#2A3794">
+          <div><img src="https://placehold.co/640x400/F8F6F2/2A3794?text=Research" alt="Research cover" class="w-full aspect-[16/10] object-cover"></div>
+          <div class="p-6 flex-1 flex flex-col">
+            <div class="flex items-center gap-3 text-[11px] tracking-[0.18em] uppercase text-slate500 font-semibold">
+              <span class="text-brand">Research</span><span class="h-px w-6 bg-hairline"></span><span class="num">2026 · 01</span>
+            </div>
+            <h3 class="font-display text-[19px] leading-[1.3] text-ink mt-4 font-semibold tracking-[-0.01em]">
+              <span class="title-underline">A deployment framework for the BSE SME platform.</span>
+            </h3>
+            <p class="mt-3 text-[14px] leading-[1.7] text-graphite">Liquidity, float, and the read-through to institutional sizing.</p>
+            <span class="mt-4 text-[12px] text-slate500 num">10 min read</span>
+          </div>
+        </article>
+      </a>
+
+      <a href="#" class="insight-card group block" data-cat="policy">
+        <article class="elev fade-up h-full flex flex-col" style="--stripe:#09A14A">
+          <div><img src="https://placehold.co/640x400/F8F6F2/09A14A?text=Policy" alt="Policy cover" class="w-full aspect-[16/10] object-cover"></div>
+          <div class="p-6 flex-1 flex flex-col">
+            <div class="flex items-center gap-3 text-[11px] tracking-[0.18em] uppercase text-slate500 font-semibold">
+              <span class="text-growth">Policy</span><span class="h-px w-6 bg-hairline"></span><span class="num">2025 · 11</span>
+            </div>
+            <h3 class="font-display text-[19px] leading-[1.3] text-ink mt-4 font-semibold tracking-[-0.01em]">
+              <span class="title-underline">SEBI's Cat III AIF framework: what changed in the last cycle.</span>
+            </h3>
+            <p class="mt-3 text-[14px] leading-[1.7] text-graphite">A plain-English read on disclosure, accreditation, and taxation updates.</p>
+            <span class="mt-4 text-[12px] text-slate500 num">7 min read</span>
+          </div>
+        </article>
+      </a>
+
+      <a href="#" class="insight-card group block" data-cat="market">
+        <article class="elev fade-up h-full flex flex-col" style="--stripe:#F69322">
+          <div><img src="https://placehold.co/640x400/1C1D2D/F69322?text=Market+Note" alt="Market note cover" class="w-full aspect-[16/10] object-cover"></div>
+          <div class="p-6 flex-1 flex flex-col">
+            <div class="flex items-center gap-3 text-[11px] tracking-[0.18em] uppercase text-slate500 font-semibold">
+              <span class="text-accent">Market note</span><span class="h-px w-6 bg-hairline"></span><span class="num">2025 · 10</span>
+            </div>
+            <h3 class="font-display text-[19px] leading-[1.3] text-ink mt-4 font-semibold tracking-[-0.01em]">
+              <span class="title-underline">Capex cycles in Tier-2: three signals to watch.</span>
+            </h3>
+            <p class="mt-3 text-[14px] leading-[1.7] text-graphite">Ground-level indicators that precede the official data.</p>
+            <span class="mt-4 text-[12px] text-slate500 num">6 min read</span>
+          </div>
+        </article>
+      </a>
+
+      <a href="#" class="insight-card group block" data-cat="founder">
+        <article class="elev fade-up h-full flex flex-col" style="--stripe:#2A3794">
+          <div><img src="https://placehold.co/640x400/F8F6F2/2A3794?text=Founder+Interview" alt="Founder interview cover" class="w-full aspect-[16/10] object-cover"></div>
+          <div class="p-6 flex-1 flex flex-col">
+            <div class="flex items-center gap-3 text-[11px] tracking-[0.18em] uppercase text-slate500 font-semibold">
+              <span class="text-brand">Founder interview</span><span class="h-px w-6 bg-hairline"></span><span class="num">2025 · 09</span>
+            </div>
+            <h3 class="font-display text-[19px] leading-[1.3] text-ink mt-4 font-semibold tracking-[-0.01em]">
+              <span class="title-underline">Exporting precision: a conversation with a second-generation promoter.</span>
+            </h3>
+            <p class="mt-3 text-[14px] leading-[1.7] text-graphite">On customer concentration, capex discipline, and family transitions.</p>
+            <span class="mt-4 text-[12px] text-slate500 num">9 min read</span>
+          </div>
+        </article>
+      </a>
+
+      <a href="#" class="insight-card group block" data-cat="research">
+        <article class="elev fade-up h-full flex flex-col" style="--stripe:#09A14A">
+          <div><img src="https://placehold.co/640x400/1C1D2D/09A14A?text=Research" alt="Research cover" class="w-full aspect-[16/10] object-cover"></div>
+          <div class="p-6 flex-1 flex flex-col">
+            <div class="flex items-center gap-3 text-[11px] tracking-[0.18em] uppercase text-slate500 font-semibold">
+              <span class="text-growth">Research</span><span class="h-px w-6 bg-hairline"></span><span class="num">2025 · 07</span>
+            </div>
+            <h3 class="font-display text-[19px] leading-[1.3] text-ink mt-4 font-semibold tracking-[-0.01em]">
+              <span class="title-underline">Governance readiness: a promoter checklist.</span>
+            </h3>
+            <p class="mt-3 text-[14px] leading-[1.7] text-graphite">Twenty items that separate listing-ready from listing-hopeful.</p>
+            <span class="mt-4 text-[12px] text-slate500 num">8 min read</span>
+          </div>
+        </article>
+      </a>
+
+      <a href="#" class="insight-card group block" data-cat="policy">
+        <article class="elev fade-up h-full flex flex-col" style="--stripe:#F69322">
+          <div><img src="https://placehold.co/640x400/F8F6F2/F69322?text=Policy" alt="Policy cover" class="w-full aspect-[16/10] object-cover"></div>
+          <div class="p-6 flex-1 flex flex-col">
+            <div class="flex items-center gap-3 text-[11px] tracking-[0.18em] uppercase text-slate500 font-semibold">
+              <span class="text-accent">Policy</span><span class="h-px w-6 bg-hairline"></span><span class="num">2025 · 06</span>
+            </div>
+            <h3 class="font-display text-[19px] leading-[1.3] text-ink mt-4 font-semibold tracking-[-0.01em]">
+              <span class="title-underline">PMLA, FATCA, CRS: what LPs should actually expect at KYC.</span>
+            </h3>
+            <p class="mt-3 text-[14px] leading-[1.7] text-graphite">A clean run-through of the document requirements prospective investors face.</p>
+            <span class="mt-4 text-[12px] text-slate500 num">4 min read</span>
+          </div>
+        </article>
+      </a>
+
+      <a href="#" class="insight-card group block" data-cat="market">
+        <article class="elev fade-up h-full flex flex-col" style="--stripe:#2A3794">
+          <div><img src="https://placehold.co/640x400/1C1D2D/2A3794?text=Market+Note" alt="Market note cover" class="w-full aspect-[16/10] object-cover"></div>
+          <div class="p-6 flex-1 flex flex-col">
+            <div class="flex items-center gap-3 text-[11px] tracking-[0.18em] uppercase text-slate500 font-semibold">
+              <span class="text-brand">Market note</span><span class="h-px w-6 bg-hairline"></span><span class="num">2025 · 04</span>
+            </div>
+            <h3 class="font-display text-[19px] leading-[1.3] text-ink mt-4 font-semibold tracking-[-0.01em]">
+              <span class="title-underline">Listing volumes: the quiet thirty-percent story.</span>
+            </h3>
+            <p class="mt-3 text-[14px] leading-[1.7] text-graphite">A cycle-over-cycle read of the BSE SME platform.</p>
+            <span class="mt-4 text-[12px] text-slate500 num">6 min read</span>
+          </div>
+        </article>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter -->
+<section class="bg-white">
+  <div class="max-w-container mx-auto px-6 lg:px-8 py-20 lg:py-24">
+    <div class="elev p-8 lg:p-12 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center" style="--stripe:#09A14A">
+      <div>
+        <div class="section-index">Subscribe</div>
+        <h3 class="font-display text-[26px] lg:text-[34px] leading-[1.15] font-semibold text-brand mt-4 tracking-[-0.015em]">A quarterly letter from the desk.</h3>
+        <p class="mt-3 text-[15px] leading-[1.7] text-graphite max-w-[52ch]">New research, a founder interview, and a market note — once a quarter. No promotional content.</p>
+      </div>
+      <form class="flex flex-col sm:flex-row gap-3" aria-label="Newsletter signup">
+        <label for="sub" class="sr-only">Email</label>
+        <input id="sub" type="email" placeholder="you@domain.com" class="flex-1 border border-hairline rounded-btn px-4 py-3.5 text-[15px] focus:border-growth outline-none">
+        <button type="submit" class="inline-flex items-center justify-center gap-2 bg-growth text-white font-semibold px-6 py-3.5 rounded-btn hover:bg-growthDk transition-colors">Subscribe
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="bg-ink text-white border-t border-white/10">
+  <div class="max-w-container mx-auto px-6 lg:px-8 py-14 lg:py-16">
+    <p class="text-[12px] leading-[1.75] text-white/65 max-w-[98ch]">
+      <strong class="text-white/85 font-semibold">Disclaimer:</strong> Content on this page is for general informational purposes only and does not constitute an offer, solicitation, or investment recommendation. Investments in Alternative Investment Funds are subject to market risks. Read all scheme-related documents carefully.
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer class="bg-ink text-white border-t border-white/10">
+  <div class="max-w-container mx-auto px-6 lg:px-8 pt-20 pb-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12">
+      <div class="lg:col-span-4">
+        <a href="tgisme.html" class="inline-block bg-white px-4 py-3 rounded-btn"><img src="./logo.png" alt="TGIsmE" class="h-10 w-auto"></a>
+        <p class="mt-6 text-[14px] leading-[1.7] text-white/65 max-w-[38ch]">A SEBI-registered Category III AIF investing in Indian small and medium enterprises. Managed by TGISME Capital Advisors LLP.</p>
+        <div class="mt-7 flex flex-col gap-2.5 text-[14px]">
+          <a href="tel:+919662774547" class="text-white hover:text-growth num">+91 96627 74547</a>
+          <a href="mailto:finance@tgisme.com" class="text-white hover:text-growth">finance@tgisme.com</a>
+        </div>
+      </div>
+      <div class="lg:col-span-3">
+        <div class="text-[11px] tracking-[0.18em] uppercase font-semibold" style="color:#8C96CF">Corporate office</div>
+        <address class="not-italic mt-4 text-[14px] leading-[1.75] text-white/75">1404, Lodha Supremus,<br>Senapati Bapat Marg,<br>Lower Parel, Mumbai 400013</address>
+      </div>
+      <div class="lg:col-span-3">
+        <div class="text-[11px] tracking-[0.18em] uppercase font-semibold" style="color:#F9B56C">Registered office</div>
+        <address class="not-italic mt-4 text-[14px] leading-[1.75] text-white/75">A-41, Corporate House,<br>Bodakdev, S.G. Highway,<br>Ahmedabad 380054</address>
+      </div>
+      <div class="lg:col-span-2">
+        <div class="text-[11px] tracking-[0.18em] uppercase text-growth font-semibold">Navigate</div>
+        <ul class="mt-4 space-y-2.5 text-[14px] text-white/75">
+          <li><a href="investors.html" class="hover:text-growth">For Investors</a></li>
+          <li><a href="smes.html" class="hover:text-growth">For SMEs</a></li>
+          <li><a href="approach.html" class="hover:text-growth">Our Approach</a></li>
+          <li><a href="portfolio.html" class="hover:text-growth">Portfolio</a></li>
+          <li><a href="insights.html" class="hover:text-growth">Insights</a></li>
+          <li><a href="about.html" class="hover:text-growth">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-16 border-t border-white/10 pt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-[12px] text-white/50">
+      <div class="num">© <span id="yr">2026</span> TGISME Capital Advisors LLP. All rights reserved.</div>
+      <div class="flex flex-wrap items-center gap-x-6 gap-y-2">
+        <a href="#" class="hover:text-growth">Privacy Policy</a>
+        <a href="#" class="hover:text-growth">Terms &amp; Conditions</a>
+        <a href="#" class="hover:text-growth">Risk Disclosure</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var yr=document.getElementById('yr'); if (yr) yr.textContent = new Date().getFullYear();
+  var btn=document.getElementById('menuBtn'), mNav=document.getElementById('mobileNav');
+  if (btn && mNav) btn.addEventListener('click', function(){ mNav.classList.toggle('hidden'); btn.setAttribute('aria-expanded', String(!mNav.classList.contains('hidden'))); });
+  var rail=document.getElementById('progressRail');
+  if (rail) window.addEventListener('scroll', function(){ var h=document.documentElement, m=h.scrollHeight-h.clientHeight; rail.style.width=(m>0?(h.scrollTop/m)*100:0)+'%'; }, {passive:true});
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold: 0.15 });
+    document.querySelectorAll('.fade-up').forEach(function(el){ io.observe(el); });
+  } else { document.querySelectorAll('.fade-up').forEach(function(el){ el.classList.add('in'); }); }
+
+  var filters=document.querySelectorAll('#insightFilters .chip');
+  var cards=document.querySelectorAll('#insightGrid .insight-card');
+  filters.forEach(function(b){
+    b.addEventListener('click', function(){
+      filters.forEach(function(x){ x.setAttribute('aria-pressed', String(x===b)); });
+      var f=b.getAttribute('data-filter');
+      cards.forEach(function(c){ c.classList.toggle('hide', !(f==='all' || c.getAttribute('data-cat')===f)); });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

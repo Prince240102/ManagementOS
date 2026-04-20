@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TGIsmE — Quantumgrowth Capital | SEBI-Registered Category III AIF</title>
+<meta name="description" content="TGIsmE is a SEBI-registered Category III AIF led by Ajay Thakur, architect of India's first SME exchange at BSE. We invest in, and grow with, the next generation of Indian enterprises.">
+<meta name="theme-color" content="#09A14A">
+<link rel="icon" href="./logo.png" type="image/png">
+
+<!--
+================================================================================
+  TGIsmE — Homepage
+  Quantumgrowth Capital | SEBI Reg. IN/AIF3/23-24/1473 | Scores ID: aif01400
+  Investment Manager: TGISME Capital Advisors LLP
+================================================================================
+  DESIGN REFERENCE
+    Peak XV (70) · Kedaara (20) · Abakkus (10)
+    Editorial whitespace, warm paper backdrop, founder-led gravitas.
+  BRAND SYSTEM (TGIsmE.pptx, Aug 2024) — tri-colour, balanced roles
+    Green  #09A14A  · signature accent (CTAs, active states, progress)
+    Blue   #2A3794  · structural (H1 display, trust marks, fund frame)
+    Orange #F69322  · warm highlight (numerals, stripes, hot moments)
+    Ink    #1C1D2D  · primary text
+    Paper  #F8F6F2  · warm editorial surface
+    Typography  Montserrat (display) · Inter (body)
+  ASSETS ./logo.png — official TGIsmE Capital Advisors LLP wordmark
+================================================================================
+  SECTION MAP
+  01 Sticky nav · 02 Hero + tri-colour bar mark · 03 Sector marquee
+  04 Trust bar · 05 Thesis (green donut, green→orange bar, blue→orange rail)
+  06 Founder (Abakkus-style data block + rotated tri-colour team bullets)
+  07 Fund (elevated card with tri-colour top gradient stripe)
+  08 Approach (orange numerals, tri-colour rail)
+  09 Portfolio (tri-colour sector tags, case-study card orange stripe)
+  10 Split CTA (green + orange accents)
+  11 Insights (3 elevated cards · blue / green / orange top stripes)
+  12 Compliance band (tri-colour top stripe)
+  13 Footer
+================================================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          brand:    '#2A3794',
+          brandDk:  '#1E2873',
+          growth:   '#09A14A',
+          growthDk: '#077A38',
+          accent:   '#F69322',
+          accentDk: '#DA7A14',
+          ink:      '#1C1D2D',
+          graphite: '#1F2937',
+          slate600: '#4B5563',
+          slate500: '#64748B',
+          hairline: '#E5E7EB',
+          paper:    '#F8F6F2',
+        },
+        fontFamily: {
+          display: ['"Montserrat"', 'system-ui', 'sans-serif'],
+          sans:    ['"Inter"', 'system-ui', 'sans-serif'],
+        },
+        maxWidth: { container: '1240px', narrow: '880px' },
+        borderRadius: { card: '12px', btn: '4px' },
+        screens: { xs: '480px' },
+      },
+    },
+  }
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', system-ui, sans-serif; color: #1C1D2D; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; background: #F8F6F2; }
+  main { background: #FFFFFF; }
+  .font-display { font-family: 'Montserrat', system-ui, sans-serif; letter-spacing: -0.015em; }
+  .num { font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
+  :focus-visible { outline: 2px solid #09A14A; outline-offset: 2px; border-radius: 2px; }
+  ::selection { background: #09A14A; color: #fff; }
+
+  /* Editorial section index */
+  .section-index { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.24em; color: #64748B; text-transform: uppercase; }
+  .section-index::before { content: '—'; margin-right: 10px; color: #09A14A; }
+
+  /* Scroll progress rail — tri-colour gradient */
+  .progress-rail { position: fixed; top: 0; left: 0; height: 2px; background: linear-gradient(90deg, #2A3794 0%, #09A14A 50%, #F69322 100%); z-index: 60; width: 0; transition: width 80ms linear; }
+
+  /* Generic fade-up */
+  .fade-up { opacity: 0; transform: translateY(14px); transition: opacity 300ms ease-out, transform 300ms ease-out; }
+  .fade-up.in { opacity: 1; transform: translateY(0); }
+
+  /* Staggered word reveal */
+  .word { display: inline-block; opacity: 0; transform: translateY(10px); transition: opacity 480ms ease-out, transform 480ms ease-out; }
+  .word.in { opacity: 1; transform: translateY(0); }
+
+  /* Active-section indicator (green) */
+  .nav-link { position: relative; padding-bottom: 4px; }
+  .nav-link::after { content: ''; position: absolute; left: 0; right: 0; bottom: -2px; height: 2px; background: #09A14A; transform: scaleX(0); transform-origin: left; transition: transform 260ms ease-out; }
+  .nav-link[aria-current="true"]::after { transform: scaleX(1); }
+  .nav-link:hover::after { transform: scaleX(0.4); }
+
+  /* Hero frame */
+  .hero-frame { overflow: hidden; border-radius: 12px; }
+  .hero-frame img { transition: transform 900ms ease-out; }
+  .hero-frame:hover img { transform: scale(1.02); }
+
+  /* Marquee */
+  .ticker { overflow: hidden; }
+  .ticker-track { display: inline-flex; gap: 2.5rem; animation: ticker 60s linear infinite; will-change: transform; }
+  .ticker:hover .ticker-track { animation-play-state: paused; }
+  @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* Vertical accent bar grow-in */
+  .accent-bar { transform-origin: top; transform: scaleY(0); transition: transform 520ms ease-out; }
+  .accent-bar.in { transform: scaleY(1); }
+
+  /* Donut */
+  .donut-track { stroke: #E5E7EB; }
+  .donut-fill { stroke: #09A14A; stroke-dasharray: 283; stroke-dashoffset: 283; transition: stroke-dashoffset 1400ms ease-out; transform: rotate(-90deg); transform-origin: 50% 50%; }
+  .donut-fill.in { stroke-dashoffset: 198; }
+
+  /* Approach rail — tri-colour */
+  .rail-track { height: 2px; background: #E5E7EB; position: relative; overflow: hidden; }
+  .rail-fill { position: absolute; inset: 0; background: linear-gradient(90deg, #2A3794 0%, #09A14A 55%, #F69322 100%); transform-origin: left; transform: scaleX(0); transition: transform 1400ms ease-out; }
+  .rail-fill.in { transform: scaleX(1); }
+
+  /* Thesis mini rail (blue → orange) */
+  .mini-rail { position: absolute; inset: 0; background: linear-gradient(90deg, #2A3794, #F69322); transform-origin: left; transform: scaleX(0); transition: transform 1200ms ease-out; }
+  .mini-rail.in { transform: scaleX(1); }
+
+  /* Approach step interactivity */
+  .approach-step { transition: background-color 220ms ease-out; }
+  .approach-step:hover, .approach-step:focus-within { background: rgba(9,161,74,0.04); }
+  .approach-step .step-detail { max-height: 0; opacity: 0; overflow: hidden; transition: max-height 300ms ease-out, opacity 220ms ease-out, margin-top 220ms ease-out; margin-top: 0; }
+  .approach-step:hover .step-detail,
+  .approach-step:focus-within .step-detail,
+  .approach-step.open .step-detail { max-height: 260px; opacity: 1; margin-top: 0.75rem; }
+
+  /* Filter chips */
+  .chip { transition: background-color 220ms ease-out, color 220ms ease-out, border-color 220ms ease-out; }
+  .chip[aria-pressed="true"] { background: #09A14A; color: #fff; border-color: #09A14A; }
+  .portfolio-tile { transition: opacity 260ms ease-out, transform 260ms ease-out, background-color 220ms ease-out, box-shadow 220ms ease-out; }
+  .portfolio-tile.hide { opacity: 0; transform: scale(0.98); pointer-events: none; position: absolute; }
+  .portfolio-tile .sector-tag { opacity: 0; transform: translateY(4px); transition: opacity 220ms ease-out, transform 220ms ease-out; }
+  .portfolio-tile:hover { box-shadow: inset 0 -2px 0 0 var(--tile-accent, #09A14A); }
+  .portfolio-tile:hover .sector-tag { opacity: 1; transform: translateY(0); }
+
+  /* Elevated card — core visual treatment */
+  .elev {
+    background: #fff;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 1px 2px rgba(28,29,45,0.04), 0 12px 28px rgba(28,29,45,0.06);
+    transition: transform 280ms ease-out, box-shadow 280ms ease-out, border-color 280ms ease-out;
+  }
+  .elev::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--stripe, #09A14A);
+    z-index: 2;
+  }
+  .elev.tri::before { background: linear-gradient(90deg, #2A3794 0%, #09A14A 50%, #F69322 100%); height: 4px; }
+  .elev:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 10px rgba(28,29,45,0.06), 0 24px 48px rgba(28,29,45,0.10);
+    border-color: #D6D9DE;
+  }
+  .title-underline { background-image: linear-gradient(#09A14A, #09A14A); background-size: 0% 2px; background-repeat: no-repeat; background-position: 0 100%; transition: background-size 280ms ease-out; padding-bottom: 2px; }
+  .group:hover .title-underline, .elev:hover .title-underline { background-size: 100% 2px; }
+
+  /* Fund tabs */
+  .fund-tab { position: relative; padding: 14px 4px; color: #4B5563; font-weight: 600; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; transition: color 220ms ease-out; }
+  .fund-tab[aria-selected="true"] { color: #09A14A; }
+  .fund-tab::after { content: ''; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: #09A14A; transform: scaleX(0); transform-origin: left; transition: transform 260ms ease-out; }
+  .fund-tab[aria-selected="true"]::after { transform: scaleX(1); }
+  .fund-panel { display: none; }
+  .fund-panel.active { display: block; animation: panelIn 300ms ease-out; }
+  @keyframes panelIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .fade-up, .word { opacity: 1; transform: none; transition: none; }
+    .accent-bar { transform: scaleY(1); transition: none; }
+    .donut-fill { stroke-dashoffset: 198; transition: none; }
+    .rail-fill, .mini-rail { transform: scaleX(1); transition: none; }
+    .ticker-track { animation: none; }
+    .hero-frame img { transition: none; }
+    .progress-rail { transition: none; }
+    *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+  }
+</style>
+</head>
+<body class="bg-paper text-ink antialiased">
+
+<div class="progress-rail" id="progressRail" aria-hidden="true"></div>
+<a href="#home" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[70] focus:bg-growth focus:text-white focus:px-4 focus:py-2 focus:rounded-btn">Skip to content</a>
+
+<!-- 01 · Sticky navigation -->
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-hairline">
+  <div class="max-w-container mx-auto px-6 lg:px-8 h-[72px] flex items-center justify-between gap-6">
+    <a href="tgisme.html" class="flex items-center shrink-0" aria-label="TGIsmE Capital Advisors LLP — home">
+      <img src="./logo.png" alt="TGIsmE Capital Advisors LLP" class="h-9 md:h-10 w-auto" width="200" height="48">
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-7 xl:gap-9 text-[13px] font-medium text-graphite" aria-label="Primary" id="primaryNav">
+      <a href="tgisme.html" class="nav-link hover:text-ink transition-colors" data-nav="home" aria-current="page">Home</a>
+      <a href="investors.html" class="nav-link hover:text-ink transition-colors" data-nav="investors">For Investors</a>
+      <a href="smes.html" class="nav-link hover:text-ink transition-colors" data-nav="smes">For SMEs</a>
+      <a href="approach.html" class="nav-link hover:text-ink transition-colors" data-nav="approach">Our Approach</a>
+      <a href="portfolio.html" class="nav-link hover:text-ink transition-colors" data-nav="portfolio">Portfolio</a>
+      <a href="insights.html" class="nav-link hover:text-ink transition-colors" data-nav="insights">Insights</a>
+      <a href="about.html" class="nav-link hover:text-ink transition-colors" data-nav="about">About</a>
+      <a href="contact.html" class="nav-link hover:text-ink transition-colors" data-nav="contact">Contact</a>
+    </nav>
+
+    <div class="flex items-center gap-2 shrink-0">
+      <a href="investors.html" class="hidden md:inline-flex items-center gap-2 bg-growth text-white text-[13px] font-semibold px-4 py-2.5 rounded-btn hover:bg-growthDk transition-colors">
+        Invest with us
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="tel:+919662774547" class="md:hidden inline-flex items-center gap-2 bg-growth text-white text-[12px] font-semibold px-3 py-2 rounded-btn" aria-label="Call Mumbai office">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        Call
+      </a>
+      <button id="menuBtn" class="lg:hidden p-2 text-ink" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobileNav" class="lg:hidden hidden border-t border-hairline bg-white">
+    <nav class="px-6 py-5 flex flex-col gap-4 text-[15px] font-medium" aria-label="Mobile primary">
+      <a href="tgisme.html" class="text-growth">Home</a>
+      <a href="investors.html">For Investors</a>
+      <a href="smes.html">For SMEs</a>
+      <a href="approach.html">Our Approach</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="insights.html">Insights</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="investors.html" class="mt-2 inline-flex items-center justify-center bg-growth text-white px-4 py-3 rounded-btn font-semibold">Invest with us</a>
+    </nav>
+  </div>
+</header>
+
+<main id="home">
+
+<!-- 02 · Hero -->
+<section aria-labelledby="hero-heading" class="relative bg-white" data-nav-section="home">
+  <div class="max-w-container mx-auto px-6 lg:px-8 pt-16 lg:pt-28 pb-14 lg:pb-20 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+    <div class="lg:col-span-7">
+      <div class="inline-flex items-center gap-2 text-[11px] sm:text-[12px] tracking-[0.18em] uppercase text-slate600 font-semibold fade-up">
+        <span class="h-[6px] w-[6px] rounded-full bg-accent"></span>
+        SEBI Category III AIF · Quantumgrowth Capital
+      </div>
+      <h1 id="hero-heading" data-split class="font-display text-[40px] leading-[1.05] sm:text-[52px] lg:text-[68px] xl:text-[76px] xl:leading-[1.02] font-semibold tracking-[-0.02em] text-brand mt-5">
+        Built by the architects of India's SME capital markets.
+      </h1>
+      <p class="mt-8 text-[17px] sm:text-[18px] lg:text-[19px] leading-[1.65] text-graphite max-w-[58ch] fade-up">
+        TGIsmE is a SEBI-registered Category III AIF led by Ajay Thakur, who launched India's first SME exchange at BSE. We invest in, and grow with, the next generation of Indian enterprises.
+      </p>
+      <p class="mt-6 pl-5 border-l-2 border-accent text-[15px] lg:text-[16px] leading-[1.6] italic text-slate600 max-w-[58ch] fade-up">
+        SMEs are central to India's growth story, and we are focused on investing in their growth &amp; success.
+      </p>
+      <div class="mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 fade-up">
+        <a href="investors.html" class="inline-flex items-center justify-center gap-2 bg-growth text-white font-semibold px-6 py-3.5 rounded-btn hover:bg-growthDk transition-colors">
+          For Investors
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="smes.html" class="inline-flex items-center justify-center gap-2 border border-brand text-brand font-semibold px-6 py-3.5 rounded-btn hover:bg-brand hover:text-white transition-colors">
+          For SMEs seeking capital
+        </a>
+      </div>
+    </div>
+
+    <div class="lg:col-span-5 fade-up">
+      <!-- Photography note: editorial 4:5 portrait — either Ajay Thakur in a softly lit archival setting, or a Tier-2 India SME founder on a manufacturing floor at golden hour. Warm neutral + deep green/blue highlights. Do not use stock office/handshake/globe imagery. -->
+      <figure class="relative hero-frame">
+        <img src="https://placehold.co/640x800/1C1D2D/F8F6F2?text=Editorial+Portrait+%C2%B7+4%3A5" alt="Editorial portrait, 4:5 aspect ratio" class="w-full aspect-[4/5] object-cover" loading="eager" decoding="async">
+        <figcaption class="absolute left-4 bottom-4 bg-white/95 px-3 py-2 text-[11px] tracking-[0.16em] uppercase text-ink font-semibold rounded-btn">
+          Ajay Thakur · CEO &amp; Managing Partner
+        </figcaption>
+        <!-- Tri-colour stepped bar mark — echoes the TGIsmE logo chevron -->
+        <div class="absolute -right-3 -bottom-3 flex items-end gap-1.5" aria-hidden="true">
+          <span class="block w-2 h-10 bg-brand"></span>
+          <span class="block w-2 h-16 bg-accent"></span>
+          <span class="block w-2 h-24 bg-growth"></span>
+        </div>
+      </figure>
+    </div>
+  </div>
+
+  <!-- Metric strip -->
+  <div class="border-y border-hairline bg-white">
+    <div class="max-w-container mx-auto px-6 lg:px-8 grid grid-cols-2 lg:grid-cols-4 divide-y lg:divide-y-0 lg:divide-x divide-hairline">
+      <div class="py-8 lg:py-10 lg:pr-8 fade-up">
+        <div class="text-[11px] tracking-[0.18em] uppercase text-slate500 font-semibold">Market expertise</div>
+        <div class="font-display num text-[38px] lg:text-[46px] leading-none font-semibold text-ink mt-4" data-counter data-target="30" data-suffix="+">0+</div>
+        <div class="text-[13px] text-slate600 mt-3">years shaping SME capital markets</div>
+      </div>
+      <div class="py-8 lg:py-10 lg:px-8 fade-up">
+        <div class="text-[11px] tracking-[0.18em] uppercase text-slate500 font-semibold">SME IPOs enabled</div>
+        <div class="font-display num text-[38px] lg:text-[46px] leading-none font-semibold text-ink mt-4">{ipos}</div>
+        <div class="text-[13px] text-slate600 mt-3">listings on BSE SME platform</div>
+      </div>
+      <div class="py-8 lg:py-10 lg:px-8 fade-up">
+        <div class="text-[11px] tracking-[0.18em] uppercase text-slate500 font-semibold">Capital raised for SMEs</div>
+        <div class="font-display num text-[38px] lg:text-[46px] leading-none font-semibold text-ink mt-4">₹{amount}<span class="text-[20px] lg:text-[22px] align-top ml-1 text-accent font-medium">cr</span></div>
+        <div class="text-[13px] text-slate600 mt-3">cumulative, primary + follow-on</div>
+      </div>
+      <div class="py-8 lg:py-10 lg:pl-8 fade-up">
+        <div class="text-[11px] tracking-[0.18em] uppercase text-slate500 font-semibold">Fund vintage</div>
+        <div class="font-display num text-[38px] lg:text-[46px] leading-none font-semibold text-ink mt-4">2023<span class="text-growth">–24</span></div>
+        <div class="text-[13px] text-slate600 mt-3">Quantumgrowth Capital</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 · Sector marquee -->
+<section aria-label="Sectors of focus" class="ticker bg-white border-b border-hairline">
+  <div class="ticker-track py-4 text-[11px] tracking-[0.22em] uppercase text-slate600 font-semibold" aria-hidden="false">
+    <span class="flex items-center gap-10 pr-10">
+      <span>Specialty manufacturing</span><span class="text-growth">●</span>
+      <span>Engineering &amp; capital goods</span><span class="text-brand">●</span>
+      <span>Food processing</span><span class="text-accent">●</span>
+      <span>Specialty chemicals</span><span class="text-growth">●</span>
+      <span>Auto components</span><span class="text-brand">●</span>
+      <span>Tech-enabled services</span><span class="text-accent">●</span>
+      <span>Healthcare &amp; diagnostics</span><span class="text-growth">●</span>
+      <span>Consumer brands</span><span class="text-brand">●</span>
+      <span>Packaging</span><span class="text-accent">●</span>
+      <span>Textiles &amp; apparel</span><span class="text-growth">●</span>
+    </span>
+    <span class="flex items-center gap-10 pr-10" aria-hidden="true">
+      <span>Specialty manufacturing</span><span class="text-growth">●</span>
+      <span>Engineering &amp; capital goods</span><span class="text-brand">●</span>
+      <span>Food processing</span><span class="text-accent">●</span>
+      <span>Specialty chemicals</span><span class="text-growth">●</span>
+      <span>Auto components</span><span class="text-brand">●</span>
+      <span>Tech-enabled services</span><span class="text-accent">●</span>
+      <span>Healthcare &amp; diagnostics</span><span class="text-growth">●</span>
+      <span>Consumer brands</span><span class="text-brand">●</span>
+      <span>Packaging</span><span class="text-accent">●</span>
+      <span>Textiles &amp; apparel</span><span class="text-growth">●</span>
+    </span>
+  </div>
+</section>
+
+<!-- 04 · Trust bar -->
+<section aria-label="Credentials and press" class="bg-paper">
+  <div class="max-w-container mx-auto px-6 lg:px-8 py-9 lg:py-11">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+      <div class="flex flex-wrap items-center gap-3">
+        <span class="inline-flex items-center gap-2 border border-hairline bg-white px-3 py-1.5 rounded-btn text-[11px] tracking-[0.12em] uppercase text-brand font-semibold">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2 3 6v6c0 5 4 9 9 10 5-1 9-5 9-10V6l-9-4Z" stroke="#2A3794" stroke-width="1.5" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" stroke="#09A14A" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          SEBI Cat III AIF
+        </span>
+        <span class="text-[12px] text-slate600 num font-medium">Scores ID · aif01400</span>
+      </div>
+      <div class="flex flex-wrap items-center gap-x-8 gap-y-3 text-slate600">
+        <span class="font-display text-[15px] font-medium">The Economic Times</span>
+        <span class="italic text-[16px] font-medium">Mint</span>
+        <span class="font-display text-[15px] font-semibold tracking-tight">moneycontrol</span>
+        <span class="font-display text-[15px] font-medium">Business Standard</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 · The thesis -->
+<section aria-labelledby="thesis-heading" class="bg-white">
+  <div class="max-w-container mx-auto px-6 lg:px-8 py-24 lg:py-32">
+    <div class="max-w-narrow fade-up">
+      <div class="section-index">02 · The opportunity</div>
+      <h2 id="thesis-heading" class="font-display text-[34px] sm:text-[42px] lg:text-[56px] leading-[1.06] font-semibold text-brand mt-5 tracking-[-0.02em]">
+        Where India <span class="text-growth">actually</span> gets built.
+      </h2>
+      <p class="mt-7 text-[17px] lg:text-[18px] leading-[1.7] text-graphite">
+        Small and medium enterprises are not a niche of the Indian economy — they are its working body. The capital that reaches them, and the exit infrastructure that rewards them, decides the next decade.
+      </p>
+    </div>
+
+    <div class="mt-16 grid grid-cols-1 md:grid-cols-3 border-t border-hairline">
+      <article class="pt-10 pb-10 md:pr-8 lg:pr-14 border-b md:border-b-0 md:border-r border-hairline fade-up">
+        <div class="text-[11px] tracking-[0.18em] uppercase text-slate500 font-semibold">GDP contribution</div>
+        <div class="mt-7 flex items-center gap-6">
+          <svg width="108" height="108" viewBox="0 0 100 100" class="shrink-0 donut" aria-hidden="true">
+            <circle cx="50" cy="50" r="45" fill="none" stroke-width="6" class="donut-track"/>
+            <circle cx="50" cy="50" r="45" fill="none" stroke-width="6" stroke-linecap="butt" class="donut-fill"/>
+          </svg>
+          <div>
+            <div class="font-display num text-[48px] lg:text-[60px] leading-none font-semibold text-ink" data-counter data-target="30" data-suffix="%">0%</div>
+            <div class="text-[12px] tracking-[0.14em] uppercase text-growth mt-2 font-semibold">of India's GDP</div>
+          </div>
+        </div>
+        <p class="mt-7 text-[15px] leading-[1.7] text-graphite">
+          originates from the SME sector — the dominant engine of domestic output, and the most under-institutionalised slice of the investable market.
+        </p>
+      </article>
+
+      <article class="pt-10 pb-10 md:px-8 lg:px-14 border-b md:border-b-0 md:border-r border-hairline fade-up">
+        <div class="text-[11px] tracking-[0.18em] uppercase text-slate500 font-semibold">Employment base</div>
+        <div class="font-display num text-[60px] lg:text-[76px] leading-none font-semibold text-ink mt-7" data-counter data-target="110" data-suffix="M">0M</div>
+        <!-- Green → orange gradient bar — "growth reaching opportunity" -->
+        <div class="mt-5 h-[6px] w-full bg-hairline rounded-full overflow-hidden" aria-hidden="true">
+          <div class="h-full" style="width: 78%; background: linear-gradient(90deg, #09A14A, #F69322);"></div>
+        </div>
+        <p class="mt-7 text-[15px] leading-[1.7] text-graphite">
+          Indians employed across manufacturing, services, and trade by the SME economy — second only to agriculture in workforce scale.
+        </p>
+      </article>
+
+      <article class="pt-10 pb-10 md:pl-8 lg:pl-14 fade-up">
+        <div class="text-[11px] tracking-[0.18em] uppercase text-slate500 font-semibold">Capital gap &amp; exit route</div>
+        <div class="font-display text-[28px] lg:text-[36px] leading-[1.15] font-semibold text-brand mt-7 tracking-tight">
+          A formal listing path now exists.
+        </div>
+        <!-- Blue → orange mini rail: private → public -->
+        <div class="mt-6 flex items-center gap-3" aria-hidden="true">
+          <span class="h-2.5 w-2.5 rounded-full bg-brand"></span>
+          <span class="flex-1 h-px bg-hairline relative overflow-hidden"><span class="mini-rail"></span></span>
+          <span class="h-2.5 w-2.5 rounded-full bg-accent"></span>
+        </div>
+        <div class="mt-2 flex items-center justify-between text-[11px] tracking-[0.14em] uppercase text-slate500 font-semibold">
+          <span class="text-brand">Private</span><span class="text-accent">Public · BSE SME</span>
+        </div>
+        <p class="mt-6 text-[15px] leading-[1.7] text-graphite">
+          Growth capital remains structurally scarce for SMEs — yet the BSE SME platform has, for the first time, created a credible public-market exit for disciplined private capital.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 06 · Founder (Abakkus-style) -->
+<section id="about" aria-labelledby="founder-heading" class="bg-paper border-y border-hairline" data-nav-section="about">
+  <div class="max-w-container mx-auto px-6 lg:px-8 py-24 lg:py-32">
+    <div class="section-index fade-up">03 · Leadership</div>
+    <div class="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+      <div class="lg:col-span-5 fade-up">
+        <!-- Photography note: tonal editorial portrait of Ajay Thakur — seated at a desk with printed research, BSE archival texture visible. Warm natural light, muted colour. 4:5 crop. -->
+        <div class="hero-frame relative elev" style="--stripe:#2A3794">
+          <img src="https://placehold.co/720x900/1C1D2D/F8F6F2?text=Ajay+Thakur" alt="Portrait of Ajay Thakur, CEO & Managing Partner, TGIsmE" class="w-full aspect-[4/5] object-cover" loading="lazy" decoding="async">
+          <div class="absolute top-6 left-4 bg-white/95 px-3 py-2 text-[11px] tracking-[0.16em] uppercase text-brand font-semibold rounded-btn">
+            30+ years · Capital markets
+          </div>
+        </div>
+
+        <dl class="mt-8 grid grid-cols-2 gap-x-6 gap-y-5 text-[13px]">
+          <div>
+            <dt class="text-[10px] tracking-[0.16em] uppercase text-slate500 font-semibold">Tenure</dt>
+            <dd class="mt-1.5 font-display text-[22px] font-semibold text-ink num">30<span class="text-growth">+</span> yrs</dd>
+          </div>
+          <div>
+            <dt class="text-[10px] tracking-[0.16em] uppercase text-slate500 font-semibold">At BSE</dt>
+            <dd class="mt-1.5 font-display text-[22px] font-semibold text-ink num">20<span class="text-accent">12</span></dd>
+          </div>
+          <div>
+            <dt class="text-[10px] tracking-[0.16em] uppercase text-slate500 font-semibold">Formerly</dt>
+            <dd class="mt-1.5 text-graphite leading-tight">Head, SME &amp; Startup Segment, BSE</dd>
+          </div>
+          <div>
+            <dt class="text-[10px] tracking-[0.16em] uppercase text-slate500 font-semibold">Recognition</dt>
+            <dd class="mt-1.5 text-graphite leading-tight">Architect, India's first SME exchange</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="lg:col-span-7 fade-up">
+        <h2 id="founder-heading" class="sr-only">Ajay Thakur on TGIsmE</h2>
+        <div class="flex gap-6">
+          <div class="w-[3px] bg-brand accent-bar self-stretch shrink-0" aria-hidden="true"></div>
+          <blockquote class="font-display text-[24px] sm:text-[28px] lg:text-[36px] leading-[1.28] font-medium text-ink tracking-[-0.015em]">
+            I spent three decades building the rails that let Indian SMEs reach public markets.
+            <span class="text-slate600 font-normal">TGIsmE exists to travel those rails with them — as patient, institutional capital that helps good businesses become durable ones. We invest where governance meets ambition.</span>
+          </blockquote>
+        </div>
+        <figcaption class="mt-8 pl-9 flex items-center gap-4">
+          <div>
+            <div class="font-semibold text-ink">Ajay Thakur</div>
+            <div class="text-[13px] text-slate600">CEO &amp; Managing Partner, TGIsmE · Founder, BSE SME platform</div>
+          </div>
+        </figcaption>
+
+        <div class="mt-14 pt-8 border-t border-hairline">
+          <div class="text-[11px] tracking-[0.18em] uppercase text-slate500 font-semibold mb-5">Investment team</div>
+          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-5">
+            <li class="flex items-start gap-3">
+              <span class="mt-2 h-1.5 w-1.5 rounded-full bg-brand shrink-0"></span>
+              <div>
+                <div class="font-semibold text-ink">Lina Budhwani</div>
+                <div class="text-[13px] text-slate600 mt-0.5">Fund Manager · CA · 10+ yrs VC/PE</div>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-2 h-1.5 w-1.5 rounded-full bg-growth shrink-0"></span>
+              <div>
+                <div class="font-semibold text-ink">Puratan Bharti</div>
+                <div class="text-[13px] text-slate600 mt-0.5">Fund Manager · CA · 15+ yrs</div>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-2 h-1.5 w-1.5 rounded-full bg-accent shrink-0"></span>
+              <div>
+                <div class="font-semibold text-ink">Bharat Thaker</div>
+                <div class="text-[13px] text-slate600 mt-0.5">Head, Operations &amp; Compliance · 27+ yrs</div>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-2 h-1.5 w-1.5 rounded-full bg-brand shrink-0"></span>
+              <div>
+                <div class="font-semibold text-ink">Anit Agrawal</div>
+                <div class="text-[13px] text-slate600 mt-0.5">Investment Analyst · MBA Finance · 5+ yrs</div>
+              </div>
+            </li>
+          </ul>
+          <a href="about.html" class="mt-8 inline-flex items-center gap-2 text-growth font-semibold hover:text-growthDk transition-colors">
+            Meet the full leadership
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 · The Fund — tri-colour elevated card -->
+<section aria-labelledby="fund-heading" class="bg-white">
+  <div class="max-w-container mx-auto px-6 lg:px-8 py-24 lg:py-32">
+    <div class="max-w-narrow mx-auto">
+      <div class="fade-up text-center">
+        <div class="section-index inline-block">04 · The fund</div>
+        <h2 id="fund-heading" class="font-display text-[34px] sm:text-[42px] lg:text-[56px] leading-[1.06] font-semibold text-brand mt-5 tracking-[-0.02em]">
+          Quantumgrowth Capital
+        </h2>
+        <p class="mt-6 text-[17px] leading-[1.7] text-graphite mx-auto">
+          A SEBI-registered Category III AIF investing in Indian small and medium enterprises across listing and growth stages.
+        </p>
+      </div>
+
+      <div class="mt-12 elev tri fade-up">
+        <div class="p-8 lg:p-10">
+          <div class="flex flex-wrap gap-2">
+            <span class="text-[11px] tracking-[0.12em] uppercase px-2.5 py-1 rounded-btn text-white font-semibold bg-brand">Category III AIF</span>
+            <span class="text-[11px] tracking-[0.12em] uppercase px-2.5 py-1 rounded-btn text-white font-semibold bg-growth">Open-ended</span>
+            <span class="text-[11px] tracking-[0.12em] uppercase px-2.5 py-1 rounded-btn text-white font-semibold bg-accent">Listed &amp; pre-listed SMEs</span>
+            <span class="text-[11px] tracking-[0.12em] uppercase px-2.5 py-1 border border-hairline rounded-btn text-ink font-semibold">SEBI reg. IN/AIF3/23-24/1473</span>
+          </div>
+
+          <div class="mt-8 border-b border-hairline flex gap-8 overflow-x-auto" role="tablist" aria-label="Fund detail views">
+            <button class="fund-tab" role="tab" aria-selected="true" aria-controls="panel-strategy" id="tab-strategy" data-tab="strategy">Strategy</button>
+            <button class="fund-tab" role="tab" aria-selected="false" aria-controls="panel-structure" id="tab-structure" data-tab="structure">Structure</button>
+            <button class="fund-tab" role="tab" aria-selected="false" aria-controls="panel-governance" id="tab-governance" data-tab="governance">Governance</button>
+          </div>
+
+          <div class="pt-8">
+            <div class="fund-panel active" role="tabpanel" id="panel-strategy" aria-labelledby="tab-strategy" data-panel="strategy">
+              <p class="font-display text-[22px] lg:text-[26px] leading-[1.4] text-ink font-medium max-w-[60ch]">
+                A concentrated, research-led strategy — held as institutional partners, not passive positions.
+              </p>
+              <ul class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-5 text-[14px] text-graphite">
+                <li class="flex items-start gap-3"><span class="mt-2 h-1.5 w-1.5 bg-brand rounded-full shrink-0"></span><span>Proprietary origination through BSE SME, merchant bankers, and regional founder networks.</span></li>
+                <li class="flex items-start gap-3"><span class="mt-2 h-1.5 w-1.5 bg-growth rounded-full shrink-0"></span><span>Long holding periods, concentrated book; quality over breadth.</span></li>
+                <li class="flex items-start gap-3"><span class="mt-2 h-1.5 w-1.5 bg-accent rounded-full shrink-0"></span><span>Active post-investment engagement on governance and capital strategy.</span></li>
+                <li class="flex items-start gap-3"><span class="mt-2 h-1.5 w-1.5 bg-brand rounded-full shrink-0"></span><span>Sector-agnostic within Indian SME universe; thesis-driven allocation.</span></li>
+              </ul>
+            </div>
+
+            <div class="fund-panel" role="tabpanel" id="panel-structure" aria-labelledby="tab-structure" data-panel="structure" hidden>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+                <div>
+                  <div class="text-[11px] tracking-[0.18em] uppercase text-slate500 font-semibold">Minimum commitment</div>
+                  <div class="mt-3 font-display num text-[28px] text-brand font-semibold">₹{1 cr}</div>
+                  <div class="text-[12px] text-slate600 mt-1">as mandated for Cat III AIF</div>
+                </div>
+                <div>
+                  <div class="text-[11px] tracking-[0.18em] uppercase text-slate500 font-semibold">Structure</div>
+                  <div class="mt-3 font-display text-[24px] text-growth font-semibold">Open-ended</div>
+                  <div class="text-[12px] text-slate600 mt-1">subject to scheme terms</div>
+                </div>
+                <div>
+                  <div class="text-[11px] tracking-[0.18em] uppercase text-slate500 font-semibold">Investment manager</div>
+                  <div class="mt-3 font-display text-[18px] text-ink font-semibold leading-snug">TGISME Capital<br>Advisors LLP</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="fund-panel" role="tabpanel" id="panel-governance" aria-labelledby="tab-governance" data-panel="governance" hidden>
+              <p class="font-display text-[20px] lg:text-[24px] leading-[1.45] text-ink font-medium max-w-[60ch]">
+                The fund operates under SEBI's Category III AIF framework — with an independent investment committee, periodic unitholder reporting, and full compliance with SEBI (AIF) Regulations, 2012.
+              </p>
+              <dl class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-5 text-[14px]">
+                <div><dt class="text-[11px] tracking-[0.18em] uppercase text-slate500 font-semibold">Regulator</dt><dd class="mt-2 text-graphite">SEBI · Cat III AIF</dd></div>
+                <div><dt class="text-[11px] tracking-[0.18em] uppercase text-slate500 font-semibold">Registration</dt><dd class="mt-2 text-graphite num">IN/AIF3/23-24/1473</dd></div>
+                <div><dt class="text-[11px] tracking-[0.18em] uppercase text-slate500 font-semibold">Scores ID</dt><dd class="mt-2 text-graphite num">aif01400</dd></div>
+                <div><dt class="text-[11px] tracking-[0.18em] uppercase text-slate500 font-semibold">Reporting</dt><dd class="mt-2 text-graphite">Periodic NAV &amp; unitholder statements</dd></div>
+              </dl>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-t border-hairline px-8 lg:px-10 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-paper">
+          <p class="text-[12px] leading-[1.65] text-slate600 max-w-[60ch]">
+            Investments in Alternative Investment Funds are subject to market risks. Read all scheme-related documents carefully.
+          </p>
+          <a href="investors.html" class="inline-flex items-center gap-2 text-growth font-semibold whitespace-nowrap hover:text-growthDk transition-colors">
+            View fund details
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 · Our approach -->
+<section id="approach" aria-labelledby="approach-heading" class="bg-paper border-y border-hairline" data-nav-section="approach">
+  <div class="max-w-container mx-auto px-6 lg:px-8 py-24 lg:py-32">
+    <div class="max-w-narrow fade-up">
+      <div class="section-index">05 · Our approach</div>
+      <h2 id="approach-heading" class="font-display text-[34px] sm:text-[42px] lg:text-[56px] leading-[1.06] font-semibold text-brand mt-5 tracking-[-0.02em]">
+        A four-step process, run with institutional discipline.
+      </h2>
+    </div>
+
+    <div class="mt-16 rail-track" id="approachRail" aria-hidden="true">
+      <div class="rail-fill"></div>
+    </div>
+
+    <ol class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4" role="list">
+      <li class="approach-step relative pt-8 pb-8 pr-4 md:pr-8 border-b md:border-b-0 md:border-r border-hairline last:border-r-0 cursor-pointer" tabindex="0" aria-label="Step 01: Source">
+        <div class="flex items-baseline gap-3">
+          <span class="font-display num text-[12px] text-accent tracking-widest font-bold">01</span>
+          <h3 class="font-display text-[22px] text-brand font-semibold">Source</h3>
+        </div>
+        <p class="mt-4 text-[14px] leading-[1.7] text-graphite">
+          Proprietary deal origination drawing on three decades of relationships across BSE SME, merchant bankers, and regional founder networks.
+        </p>
+        <div class="step-detail text-[13px] leading-[1.7] text-slate600">
+          <span class="text-[11px] tracking-[0.16em] uppercase text-growth font-semibold">Signals we prioritise</span>
+          <p class="mt-1">Regional dominance, promoter continuity, clean books, listing-grade governance within 24 months.</p>
+        </div>
+      </li>
+
+      <li class="approach-step relative pt-8 pb-8 pr-4 md:px-8 border-b md:border-b-0 md:border-r border-hairline cursor-pointer" tabindex="0" aria-label="Step 02: Diligence">
+        <div class="flex items-baseline gap-3">
+          <span class="font-display num text-[12px] text-accent tracking-widest font-bold">02</span>
+          <h3 class="font-display text-[22px] text-brand font-semibold">Diligence</h3>
+        </div>
+        <p class="mt-4 text-[14px] leading-[1.7] text-graphite">
+          Unit economics, governance, and promoter-quality screens. Independent legal, financial, and on-site reviews before any capital is deployed.
+        </p>
+        <div class="step-detail text-[13px] leading-[1.7] text-slate600">
+          <span class="text-[11px] tracking-[0.16em] uppercase text-growth font-semibold">Third-party checks</span>
+          <p class="mt-1">Independent audit, legal, channel checks, and on-ground operational review.</p>
+        </div>
+      </li>
+
+      <li class="approach-step relative pt-8 pb-8 pr-4 md:px-8 border-b md:border-b-0 md:border-r border-hairline cursor-pointer" tabindex="0" aria-label="Step 03: Invest">
+        <div class="flex items-baseline gap-3">
+          <span class="font-display num text-[12px] text-accent tracking-widest font-bold">03</span>
+          <h3 class="font-display text-[22px] text-brand font-semibold">Invest</h3>
+        </div>
+        <p class="mt-4 text-[14px] leading-[1.7] text-graphite">
+          Concentrated positions at listing or growth stages. Structured to align incentives, protect downside, and support long holding periods.
+        </p>
+        <div class="step-detail text-[13px] leading-[1.7] text-slate600">
+          <span class="text-[11px] tracking-[0.16em] uppercase text-growth font-semibold">Structuring levers</span>
+          <p class="mt-1">Primary and anchor tranches, board rights, milestone-linked deployment where appropriate.</p>
+        </div>
+      </li>
+
+      <li class="approach-step relative pt-8 pb-8 pr-4 md:pl-8 cursor-pointer" tabindex="0" aria-label="Step 04: Partner">
+        <div class="flex items-baseline gap-3">
+          <span class="font-display num text-[12px] text-accent tracking-widest font-bold">04</span>
+          <h3 class="font-display text-[22px] text-brand font-semibold">Partner</h3>
+        </div>
+        <p class="mt-4 text-[14px] leading-[1.7] text-graphite">
+          Active post-investment engagement on governance, capital strategy, and access to public markets — we stay with founders through the build-out.
+        </p>
+        <div class="step-detail text-[13px] leading-[1.7] text-slate600">
+          <span class="text-[11px] tracking-[0.16em] uppercase text-growth font-semibold">Ongoing support</span>
+          <p class="mt-1">Board governance, CFO bench-building, listing-readiness, and follow-on capital introductions.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- 09 · Portfolio wall -->
+<section id="portfolio" aria-labelledby="portfolio-heading" class="bg-white" data-nav-section="portfolio">
+  <div class="max-w-container mx-auto px-6 lg:px-8 py-24 lg:py-32">
+    <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 fade-up">
+      <div class="max-w-[60ch]">
+        <div class="section-index">06 · Portfolio</div>
+        <h2 id="portfolio-heading" class="font-display text-[34px] sm:text-[42px] lg:text-[56px] leading-[1.06] font-semibold text-brand mt-5 tracking-[-0.02em]">
+          The companies we hold conviction in.
+        </h2>
+      </div>
+      <a href="portfolio.html" class="inline-flex items-center gap-2 text-growth font-semibold hover:text-growthDk transition-colors">
+        See full portfolio
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <div class="mt-10 flex flex-wrap gap-2" role="group" aria-label="Filter portfolio by sector" id="portfolioFilters">
+      <button class="chip border border-hairline rounded-btn px-3.5 py-1.5 text-[11px] tracking-[0.1em] uppercase text-graphite font-semibold" data-filter="all" aria-pressed="true">All</button>
+      <button class="chip border border-hairline rounded-btn px-3.5 py-1.5 text-[11px] tracking-[0.1em] uppercase text-graphite font-semibold" data-filter="manufacturing" aria-pressed="false">Manufacturing</button>
+      <button class="chip border border-hairline rounded-btn px-3.5 py-1.5 text-[11px] tracking-[0.1em] uppercase text-graphite font-semibold" data-filter="services" aria-pressed="false">Services</button>
+      <button class="chip border border-hairline rounded-btn px-3.5 py-1.5 text-[11px] tracking-[0.1em] uppercase text-graphite font-semibold" data-filter="tech" aria-pressed="false">Tech-enabled</button>
+      <button class="chip border border-hairline rounded-btn px-3.5 py-1.5 text-[11px] tracking-[0.1em] uppercase text-graphite font-semibold" data-filter="healthcare" aria-pressed="false">Healthcare</button>
+    </div>
+
+    <ul class="mt-8 grid grid-cols-2 sm:grid-cols-4 border-l border-t border-hairline fade-up" aria-label="Portfolio companies" id="portfolioGrid">
+      <li class="portfolio-tile relative aspect-[3/2] border-r border-b border-hairline flex items-center justify-center text-slate600 font-display text-[14px] sm:text-[15px] font-medium tracking-wide bg-white hover:bg-paper" data-sector="manufacturing" style="--tile-accent:#2A3794">
+        <span>Company 01</span>
+        <span class="sector-tag absolute bottom-2 right-3 text-[10px] tracking-[0.14em] uppercase text-brand font-semibold">Manufacturing</span>
+      </li>
+      <li class="portfolio-tile relative aspect-[3/2] border-r border-b border-hairline flex items-center justify-center text-slate600 font-display text-[14px] sm:text-[15px] font-medium tracking-wide bg-white hover:bg-paper" data-sector="services" style="--tile-accent:#09A14A">
+        <span>Company 02</span>
+        <span class="sector-tag absolute bottom-2 right-3 text-[10px] tracking-[0.14em] uppercase text-growth font-semibold">Services</span>
+      </li>
+      <li class="portfolio-tile relative aspect-[3/2] border-r border-b border-hairline flex items-center justify-center text-slate600 font-display text-[14px] sm:text-[15px] font-medium tracking-wide bg-white hover:bg-paper" data-sector="tech" style="--tile-accent:#F69322">
+        <span>Company 03</span>
+        <span class="sector-tag absolute bottom-2 right-3 text-[10px] tracking-[0.14em] uppercase text-accent font-semibold">Tech-enabled</span>
+      </li>
+      <li class="portfolio-tile relative aspect-[3/2] border-r border-b border-hairline flex items-center justify-center text-slate600 font-display text-[14px] sm:text-[15px] font-medium tracking-wide bg-white hover:bg-paper" data-sector="manufacturing" style="--tile-accent:#2A3794">
+        <span>Company 04</span>
+        <span class="sector-tag absolute bottom-2 right-3 text-[10px] tracking-[0.14em] uppercase text-brand font-semibold">Manufacturing</span>
+      </li>
+      <li class="portfolio-tile relative aspect-[3/2] border-r border-b border-hairline flex items-center justify-center text-slate600 font-display text-[14px] sm:text-[15px] font-medium tracking-wide bg-white hover:bg-paper" data-sector="healthcare" style="--tile-accent:#09A14A">
+        <span>Company 05</span>
+        <span class="sector-tag absolute bottom-2 right-3 text-[10px] tracking-[0.14em] uppercase text-growth font-semibold">Healthcare</span>
+      </li>
+      <li class="portfolio-tile relative aspect-[3/2] border-r border-b border-hairline flex items-center justify-center text-slate600 font-display text-[14px] sm:text-[15px] font-medium tracking-wide bg-white hover:bg-paper" data-sector="services" style="--tile-accent:#09A14A">
+        <span>Company 06</span>
+        <span class="sector-tag absolute bottom-2 right-3 text-[10px] tracking-[0.14em] uppercase text-growth font-semibold">Services</span>
+      </li>
+      <li class="portfolio-tile relative aspect-[3/2] border-r border-b border-hairline flex items-center justify-center text-slate600 font-display text-[14px] sm:text-[15px] font-medium tracking-wide bg-white hover:bg-paper" data-sector="tech" style="--tile-accent:#F69322">
+        <span>Company 07</span>
+        <span class="sector-tag absolute bottom-2 right-3 text-[10px] tracking-[0.14em] uppercase text-accent font-semibold">Tech-enabled</span>
+      </li>
+      <li class="portfolio-tile relative aspect-[3/2] border-r border-b border-hairline flex items-center justify-center text-slate600 font-display text-[14px] sm:text-[15px] font-medium tracking-wide bg-white hover:bg-paper" data-sector="manufacturing" style="--tile-accent:#2A3794">
+        <span>Company 08</span>
+        <span class="sector-tag absolute bottom-2 right-3 text-[10px] tracking-[0.14em] uppercase text-brand font-semibold">Manufacturing</span>
+      </li>
+    </ul>
+
+    <!-- Featured case study card · orange stripe (hot moment) -->
+    <article class="mt-16 elev group fade-up grid grid-cols-1 lg:grid-cols-12" style="--stripe:#F69322">
+      <div class="lg:col-span-5 hero-frame rounded-none">
+        <!-- Photography note: editorial shot of a Tier-2 India specialty manufacturing floor at golden hour, or a second-generation founder reviewing a shopfloor log. Muted, documentary tone. Avoid handshake, globe, or arrow imagery. 4:3 crop. -->
+        <img src="https://placehold.co/800x600/1C1D2D/F69322?text=Case+Study+%C2%B7+4%3A3" alt="Featured portfolio case-study visual" class="w-full h-full aspect-[4/3] lg:aspect-auto object-cover" loading="lazy" decoding="async">
+      </div>
+      <div class="lg:col-span-7 p-8 lg:p-12">
+        <div class="flex items-center gap-3 text-[11px] tracking-[0.18em] uppercase text-slate500 font-semibold">
+          <span>Case study</span>
+          <span class="h-px w-6 bg-hairline" aria-hidden="true"></span>
+          <span class="text-accent">Specialty manufacturing</span>
+        </div>
+        <h3 class="font-display text-[26px] lg:text-[34px] leading-[1.2] font-semibold text-brand mt-5 tracking-[-0.015em]">
+          <span class="title-underline">Backing a second-generation promoter through a listing-readiness transition.</span>
+        </h3>
+        <dl class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-8 text-[14px]">
+          <div>
+            <dt class="text-[11px] tracking-[0.18em] uppercase text-brand font-semibold">Thesis</dt>
+            <dd class="mt-2 text-graphite leading-[1.7]">Dominant regional position, clean balance sheet, and a pathway to public-market visibility within 18–24 months.</dd>
+          </div>
+          <div>
+            <dt class="text-[11px] tracking-[0.18em] uppercase text-growth font-semibold">Outcome</dt>
+            <dd class="mt-2 text-graphite leading-[1.7]">Governance framework formalised, board restructured, company now preparing for a BSE SME listing pathway.</dd>
+          </div>
+        </dl>
+        <a href="portfolio.html" class="mt-8 inline-flex items-center gap-2 text-accent font-semibold hover:text-accentDk transition-colors">
+          Read the case
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- 10 · Split-path CTA -->
+<section aria-label="Audience paths" class="bg-white">
+  <div class="grid grid-cols-1 lg:grid-cols-2">
+    <div id="investors" class="bg-ink text-white p-10 lg:p-16 xl:p-20 flex flex-col justify-between min-h-[400px] relative overflow-hidden" data-nav-section="investors">
+      <span class="absolute top-0 left-0 h-[3px] w-full" style="background: linear-gradient(90deg, #2A3794 0%, #09A14A 100%);" aria-hidden="true"></span>
+      <div>
+        <div class="text-[12px] tracking-[0.18em] uppercase text-growth font-semibold">For investors</div>
+        <h3 class="font-display text-[28px] sm:text-[34px] lg:text-[42px] leading-[1.15] font-semibold mt-5 tracking-[-0.015em]">
+          Access Quantumgrowth Capital.
+        </h3>
+        <p class="mt-6 text-[15px] lg:text-[16px] leading-[1.7] text-white/75 max-w-[52ch]">
+          HNIs, family offices, and institutional LPs: request the information memorandum and schedule a briefing with the investment team.
+        </p>
+      </div>
+      <div class="mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4">
+        <a href="investors.html#request" class="inline-flex items-center justify-center gap-2 bg-growth text-white font-semibold px-6 py-3.5 rounded-btn hover:bg-growthDk transition-colors">
+          Request the IM
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="contact.html" class="inline-flex items-center justify-center gap-2 border border-white/25 text-white font-semibold px-6 py-3.5 rounded-btn hover:bg-white/10 transition-colors">
+          Book a briefing
+        </a>
+      </div>
+    </div>
+
+    <div id="smes" class="bg-paper p-10 lg:p-16 xl:p-20 flex flex-col justify-between min-h-[400px] border-t lg:border-t-0 lg:border-l border-hairline relative overflow-hidden" data-nav-section="smes">
+      <span class="absolute top-0 left-0 h-[3px] w-full" style="background: linear-gradient(90deg, #09A14A 0%, #F69322 100%);" aria-hidden="true"></span>
+      <div>
+        <div class="text-[12px] tracking-[0.18em] uppercase text-accent font-semibold">For SMEs</div>
+        <h3 class="font-display text-[28px] sm:text-[34px] lg:text-[42px] leading-[1.15] font-semibold text-brand mt-5 tracking-[-0.015em]">
+          Pitch your company.
+        </h3>
+        <p class="mt-6 text-[15px] lg:text-[16px] leading-[1.7] text-graphite max-w-[52ch]">
+          Founders and promoters of Indian SMEs: submit your deck for review by the investment team. We read everything, respond selectively.
+        </p>
+      </div>
+      <div class="mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4">
+        <a href="smes.html#submit" class="inline-flex items-center justify-center gap-2 bg-brand text-white font-semibold px-6 py-3.5 rounded-btn hover:bg-brandDk transition-colors">
+          Submit your deck
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="smes.html#criteria" class="inline-flex items-center justify-center gap-2 border border-brand text-brand font-semibold px-6 py-3.5 rounded-btn hover:bg-brand hover:text-white transition-colors">
+          What we look for
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 · Insights — three elevated cards with rotated stripes -->
+<section id="insights" aria-labelledby="insights-heading" class="bg-paper border-t border-hairline" data-nav-section="insights">
+  <div class="max-w-container mx-auto px-6 lg:px-8 py-24 lg:py-32">
+    <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 fade-up">
+      <div class="max-w-[60ch]">
+        <div class="section-index">07 · Insights</div>
+        <h2 id="insights-heading" class="font-display text-[34px] sm:text-[42px] lg:text-[56px] leading-[1.06] font-semibold text-brand mt-5 tracking-[-0.02em]">
+          Notes from the desk.
+        </h2>
+      </div>
+      <a href="insights.html" class="inline-flex items-center gap-2 text-growth font-semibold hover:text-growthDk transition-colors">
+        All insights
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <div class="mt-14 grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+      <!-- Card 1 · Research · BLUE -->
+      <a href="#" class="group block">
+        <article class="elev fade-up h-full flex flex-col" style="--stripe:#2A3794">
+          <!-- Photography note: editorial still life — printed research, ledger, or close-up of a shopfloor tool. Natural light. 16:10 crop. -->
+          <div class="hero-frame rounded-none"><img src="https://placehold.co/640x400/F8F6F2/2A3794?text=Research" alt="Research note cover" class="w-full aspect-[16/10] object-cover" loading="lazy" decoding="async"></div>
+          <div class="p-7 flex-1 flex flex-col">
+            <div class="flex items-center gap-3 text-[11px] tracking-[0.18em] uppercase text-slate500 font-semibold">
+              <span class="text-brand">Research</span><span class="h-px w-6 bg-hairline" aria-hidden="true"></span><span class="num">2026 · Q1</span>
+            </div>
+            <h3 class="font-display text-[20px] leading-[1.3] text-ink mt-4 font-semibold tracking-[-0.01em]">
+              <span class="title-underline">Why the BSE SME platform is becoming a real asset class.</span>
+            </h3>
+            <p class="mt-4 text-[14px] leading-[1.7] text-graphite">
+              A structural read on listing volumes, post-listing governance, and why institutional LPs are starting to underwrite the segment seriously.
+            </p>
+            <span class="mt-5 text-[12px] text-slate500 num">8 min read</span>
+          </div>
+        </article>
+      </a>
+
+      <!-- Card 2 · Market note · GREEN -->
+      <a href="#" class="group block">
+        <article class="elev fade-up h-full flex flex-col" style="--stripe:#09A14A">
+          <!-- Photography note: editorial cityscape of a Tier-2 Indian industrial cluster at dusk — Rajkot, Coimbatore, Ludhiana. Warm monochrome. 16:10 crop. -->
+          <div class="hero-frame rounded-none"><img src="https://placehold.co/640x400/F8F6F2/09A14A?text=Market+Note" alt="Market note cover" class="w-full aspect-[16/10] object-cover" loading="lazy" decoding="async"></div>
+          <div class="p-7 flex-1 flex flex-col">
+            <div class="flex items-center gap-3 text-[11px] tracking-[0.18em] uppercase text-slate500 font-semibold">
+              <span class="text-growth">Market note</span><span class="h-px w-6 bg-hairline" aria-hidden="true"></span><span class="num">2026 · 03</span>
+            </div>
+            <h3 class="font-display text-[20px] leading-[1.3] text-ink mt-4 font-semibold tracking-[-0.01em]">
+              <span class="title-underline">Three promoter archetypes worth underwriting.</span>
+            </h3>
+            <p class="mt-4 text-[14px] leading-[1.7] text-graphite">
+              A field framework, drawn from 200+ screened deals, on the promoter profiles that convert growth capital into durable governance.
+            </p>
+            <span class="mt-5 text-[12px] text-slate500 num">5 min read</span>
+          </div>
+        </article>
+      </a>
+
+      <!-- Card 3 · Founder interview · ORANGE -->
+      <a href="#" class="group block">
+        <article class="elev fade-up h-full flex flex-col" style="--stripe:#F69322">
+          <!-- Photography note: editorial portrait of an Indian founder on a manufacturing floor, natural light, sparse composition. Muted tonal palette. 16:10 crop. -->
+          <div class="hero-frame rounded-none"><img src="https://placehold.co/640x400/1C1D2D/F69322?text=Founder+Interview" alt="Founder interview cover" class="w-full aspect-[16/10] object-cover" loading="lazy" decoding="async"></div>
+          <div class="p-7 flex-1 flex flex-col">
+            <div class="flex items-center gap-3 text-[11px] tracking-[0.18em] uppercase text-slate500 font-semibold">
+              <span class="text-accent">Founder interview</span><span class="h-px w-6 bg-hairline" aria-hidden="true"></span><span class="num">2026 · 02</span>
+            </div>
+            <h3 class="font-display text-[20px] leading-[1.3] text-ink mt-4 font-semibold tracking-[-0.01em]">
+              <span class="title-underline">&ldquo;The board meeting changed everything.&rdquo; A promoter's year under institutional capital.</span>
+            </h3>
+            <p class="mt-4 text-[14px] leading-[1.7] text-graphite">
+              An unvarnished conversation on governance, succession, and what institutional capital asks of a family-run SME.
+            </p>
+            <span class="mt-5 text-[12px] text-slate500 num">12 min read</span>
+          </div>
+        </article>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 12 · Compliance band — tri-colour top stripe -->
+<section aria-label="Regulatory information" class="bg-ink text-white relative">
+  <span class="absolute top-0 left-0 h-[4px] w-full" style="background: linear-gradient(90deg, #2A3794 0%, #09A14A 50%, #F69322 100%);" aria-hidden="true"></span>
+  <div class="max-w-container mx-auto px-6 lg:px-8 py-16 lg:py-20">
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-10 lg:gap-16 text-[13px]">
+      <div class="md:col-span-2">
+        <div class="text-[11px] tracking-[0.18em] uppercase text-growth font-semibold">Regulatory</div>
+        <h2 class="font-display text-[24px] lg:text-[30px] leading-[1.25] mt-4 font-medium tracking-[-0.01em]">
+          Operating under SEBI's Category III AIF framework.
+        </h2>
+      </div>
+      <dl class="md:col-span-3 grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-6 text-white/80 leading-[1.6]">
+        <div><dt class="text-[11px] tracking-[0.18em] uppercase text-brand/80 font-semibold" style="color:#8C96CF">SEBI registration</dt><dd class="mt-1.5 num">IN/AIF3/23-24/1473</dd></div>
+        <div><dt class="text-[11px] tracking-[0.18em] uppercase font-semibold" style="color:#6FD099">Scores ID</dt><dd class="mt-1.5 num">aif01400</dd></div>
+        <div><dt class="text-[11px] tracking-[0.18em] uppercase font-semibold" style="color:#F9B56C">Investment manager</dt><dd class="mt-1.5">TGISME Capital Advisors LLP</dd></div>
+        <div><dt class="text-[11px] tracking-[0.18em] uppercase text-white/55 font-semibold">Fund</dt><dd class="mt-1.5">Quantumgrowth Capital</dd></div>
+        <div class="sm:col-span-2"><dt class="text-[11px] tracking-[0.18em] uppercase text-white/55 font-semibold">Category</dt><dd class="mt-1.5">Category III Alternative Investment Fund</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- 13 · Footer -->
+<footer id="contact" class="bg-ink text-white border-t border-white/10" data-nav-section="contact">
+  <div class="max-w-container mx-auto px-6 lg:px-8 pt-20 pb-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12">
+      <div class="lg:col-span-4">
+        <a href="tgisme.html" class="inline-block bg-white px-4 py-3 rounded-btn" aria-label="TGIsmE home">
+          <img src="./logo.png" alt="TGIsmE Capital Advisors LLP" class="h-10 w-auto">
+        </a>
+        <p class="mt-6 text-[14px] leading-[1.7] text-white/65 max-w-[38ch]">
+          A SEBI-registered Category III AIF investing in Indian small and medium enterprises. Managed by TGISME Capital Advisors LLP.
+        </p>
+        <div class="mt-7 flex flex-col gap-2.5 text-[14px]">
+          <a href="tel:+919662774547" class="text-white hover:text-growth transition-colors num inline-flex items-center gap-2.5">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            +91 96627 74547
+          </a>
+          <a href="mailto:finance@tgisme.com" class="text-white hover:text-growth transition-colors inline-flex items-center gap-2.5">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z" stroke="currentColor" stroke-width="1.5"/><path d="m3 8 9 6 9-6" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            finance@tgisme.com
+          </a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-3">
+        <div class="text-[11px] tracking-[0.18em] uppercase font-semibold" style="color:#8C96CF">Corporate office</div>
+        <address class="not-italic mt-4 text-[14px] leading-[1.75] text-white/75">
+          1404, Lodha Supremus,<br>
+          Senapati Bapat Marg,<br>
+          Lower Parel, Mumbai 400013
+        </address>
+      </div>
+
+      <div class="lg:col-span-3">
+        <div class="text-[11px] tracking-[0.18em] uppercase font-semibold" style="color:#F9B56C">Registered office</div>
+        <address class="not-italic mt-4 text-[14px] leading-[1.75] text-white/75">
+          A-41, Corporate House,<br>
+          Bodakdev, S.G. Highway,<br>
+          Ahmedabad 380054
+        </address>
+      </div>
+
+      <div class="lg:col-span-2">
+        <div class="text-[11px] tracking-[0.18em] uppercase text-growth font-semibold">Navigate</div>
+        <ul class="mt-4 space-y-2.5 text-[14px] text-white/75">
+          <li><a href="investors.html" class="hover:text-growth transition-colors">For Investors</a></li>
+          <li><a href="smes.html" class="hover:text-accent transition-colors">For SMEs</a></li>
+          <li><a href="approach.html" class="hover:text-growth transition-colors">Our Approach</a></li>
+          <li><a href="portfolio.html" class="hover:text-growth transition-colors">Portfolio</a></li>
+          <li><a href="insights.html" class="hover:text-growth transition-colors">Insights</a></li>
+          <li><a href="about.html" class="hover:text-growth transition-colors">About</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-16 border-t border-white/10 pt-8">
+      <p class="text-[12px] leading-[1.75] text-white/55 max-w-[98ch]">
+        <strong class="text-white/80 font-semibold">Disclaimer:</strong>
+        Investments in Alternative Investment Funds are subject to market risks. Read all scheme-related documents carefully. The information on this website is for general purposes only and does not constitute an offer, solicitation, or invitation to invest in any scheme of Quantumgrowth Capital or any product managed by TGISME Capital Advisors LLP. Past performance, where referenced, is not indicative of future results. Eligibility, minimum commitments, and lock-in conditions apply in accordance with SEBI (Alternative Investment Funds) Regulations, 2012. TGISME Capital Advisors LLP does not provide tax, legal, or investment advice; prospective investors should consult qualified advisors before making any investment decision.
+      </p>
+      <div class="mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-[12px] text-white/50">
+        <div class="num">© <span id="yr">2026</span> TGISME Capital Advisors LLP. All rights reserved.</div>
+        <div class="flex flex-wrap items-center gap-x-6 gap-y-2">
+          <a href="#" class="hover:text-growth transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-growth transition-colors">Terms &amp; Conditions</a>
+          <a href="#" class="hover:text-growth transition-colors">Risk Disclosure</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var yr = document.getElementById('yr');
+  if (yr) yr.textContent = new Date().getFullYear();
+
+  var btn = document.getElementById('menuBtn');
+  var mNav = document.getElementById('mobileNav');
+  if (btn && mNav) {
+    btn.addEventListener('click', function(){
+      var isHidden = mNav.classList.toggle('hidden');
+      btn.setAttribute('aria-expanded', String(!isHidden));
+      btn.setAttribute('aria-label', isHidden ? 'Open menu' : 'Close menu');
+    });
+    mNav.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){ mNav.classList.add('hidden'); btn.setAttribute('aria-expanded','false'); });
+    });
+  }
+
+  var rail = document.getElementById('progressRail');
+  if (rail) {
+    var updateRail = function(){
+      var h = document.documentElement;
+      var max = h.scrollHeight - h.clientHeight;
+      var pct = max > 0 ? (h.scrollTop / max) * 100 : 0;
+      rail.style.width = pct + '%';
+    };
+    window.addEventListener('scroll', updateRail, { passive: true });
+    updateRail();
+  }
+
+  var splitHeadings = document.querySelectorAll('[data-split]');
+  splitHeadings.forEach(function(h){
+    var nodes = Array.from(h.childNodes);
+    h.textContent = '';
+    var idx = 0;
+    nodes.forEach(function(node){
+      if (node.nodeType === Node.TEXT_NODE) {
+        node.textContent.split(/(\s+)/).forEach(function(chunk){
+          if (/^\s+$/.test(chunk)) { h.appendChild(document.createTextNode(chunk)); return; }
+          if (!chunk) return;
+          var s = document.createElement('span');
+          s.className = 'word';
+          s.style.transitionDelay = (idx * 55) + 'ms';
+          s.textContent = chunk;
+          h.appendChild(s);
+          idx++;
+        });
+      } else {
+        h.appendChild(node);
+      }
+    });
+  });
+  requestAnimationFrame(function(){
+    document.querySelectorAll('.word').forEach(function(w){ w.classList.add('in'); });
+  });
+
+  function animateCounter(el){
+    var target = parseFloat(el.getAttribute('data-target')) || 0;
+    var suffix = el.getAttribute('data-suffix') || '';
+    var duration = 1400;
+    var start = performance.now();
+    if (reduceMotion) { el.textContent = target + suffix; return; }
+    function tick(now){
+      var p = Math.min(1, (now - start) / duration);
+      var eased = 1 - Math.pow(1 - p, 3);
+      var value = target * eased;
+      var rendered = (target % 1 === 0) ? Math.round(value) : value.toFixed(1);
+      el.textContent = rendered + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+      else el.textContent = target + suffix;
+    }
+    requestAnimationFrame(tick);
+  }
+
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (!e.isIntersecting) return;
+        var t = e.target;
+        t.classList.add('in');
+        if (t.matches('[data-counter]')) animateCounter(t);
+        io.unobserve(t);
+      });
+    }, { threshold: 0.18, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-up, .donut-fill, .accent-bar, .rail-fill, .mini-rail, [data-counter]').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.fade-up, .donut-fill, .accent-bar, .rail-fill, .mini-rail').forEach(function(el){ el.classList.add('in'); });
+    document.querySelectorAll('[data-counter]').forEach(animateCounter);
+  }
+
+  var navLinks = document.querySelectorAll('#primaryNav .nav-link');
+  var sections = document.querySelectorAll('[data-nav-section]');
+  if (navLinks.length && sections.length && 'IntersectionObserver' in window) {
+    var current = null;
+    var setActive = function(id){
+      if (current === id) return;
+      current = id;
+      navLinks.forEach(function(a){
+        a.setAttribute('aria-current', a.getAttribute('data-nav') === id ? 'true' : 'false');
+      });
+    };
+    var sio = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if (e.isIntersecting) setActive(e.target.getAttribute('data-nav-section')); });
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+    sections.forEach(function(s){ sio.observe(s); });
+  }
+
+  var tabs = document.querySelectorAll('.fund-tab');
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      var target = tab.getAttribute('data-tab');
+      tabs.forEach(function(t){ t.setAttribute('aria-selected', String(t === tab)); });
+      document.querySelectorAll('.fund-panel').forEach(function(p){
+        var match = p.getAttribute('data-panel') === target;
+        p.classList.toggle('active', match);
+        if (match) p.removeAttribute('hidden'); else p.setAttribute('hidden', '');
+      });
+    });
+    tab.addEventListener('keydown', function(e){
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      e.preventDefault();
+      var arr = Array.prototype.slice.call(tabs);
+      var i = arr.indexOf(tab);
+      var next = e.key === 'ArrowRight' ? (i + 1) % arr.length : (i - 1 + arr.length) % arr.length;
+      arr[next].focus();
+      arr[next].click();
+    });
+  });
+
+  document.querySelectorAll('.approach-step').forEach(function(step){
+    step.addEventListener('click', function(){
+      document.querySelectorAll('.approach-step').forEach(function(s){ if (s !== step) s.classList.remove('open'); });
+      step.classList.toggle('open');
+    });
+    step.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); step.click(); }
+    });
+  });
+
+  var filters = document.querySelectorAll('#portfolioFilters .chip');
+  var tiles = document.querySelectorAll('#portfolioGrid .portfolio-tile');
+  filters.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      filters.forEach(function(b){ b.setAttribute('aria-pressed', String(b === btn)); });
+      var f = btn.getAttribute('data-filter');
+      tiles.forEach(function(t){
+        var match = f === 'all' || t.getAttribute('data-sector') === f;
+        t.classList.toggle('hide', !match);
+      });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
