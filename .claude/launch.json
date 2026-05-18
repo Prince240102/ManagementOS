@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "marketingos-v8",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "marketingos-v8", "run", "dev"],
+      "port": 3000
+    }
+  ]
+}
