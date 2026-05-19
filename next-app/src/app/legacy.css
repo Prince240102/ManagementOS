@@ -1,0 +1,79 @@
+:root{
+  --bg:#0f0f11;--bg2:#16161a;--bg3:#1e1e24;--bg4:#26262e;--bg5:#2e2e38;
+  --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.12);--border3:rgba(255,255,255,0.18);
+  --text:#f0eff4;--text2:#9997a8;--text3:#5e5c72;
+  --accent:#7c6af7;--accent2:#9d8fff;--acbg:rgba(124,106,247,0.1);--acb:rgba(124,106,247,0.28);
+  --abg:rgba(124,106,247,0.1);--aborder:rgba(124,106,247,0.28);
+  --green:#4eca8b;--gbg:rgba(78,202,139,0.1);--gborder:rgba(78,202,139,0.25);
+  --gnbg:rgba(78,202,139,0.12);--gnb:rgba(78,202,139,0.3);
+  --amber:#f5a623;--ambg:rgba(245,166,35,0.1);--amborder:rgba(245,166,35,0.25);
+  --red:#f55c5c;--rbg:rgba(245,92,92,0.1);--rborder:rgba(245,92,92,0.3);
+  --rdbg:rgba(245,92,92,0.12);--rdb:rgba(245,92,92,0.35);
+  --blue:#5baef7;--bbg:rgba(91,174,247,0.1);--bborder:rgba(91,174,247,0.28);
+  --teal:#2dd4bf;--tbg:rgba(45,212,191,0.1);--tborder:rgba(45,212,191,0.28);
+  --tlbg:rgba(45,212,191,0.1);--tlborder:rgba(45,212,191,0.28);
+  --pink:#f472b6;--pk:#f472b6;--pbg:rgba(244,114,182,0.1);--pborder:rgba(244,114,182,0.25);
+  --r:10px;--rsm:6px;--rlg:14px;
+  --font:'DM Sans',system-ui,-apple-system,sans-serif;
+  --mono:'DM Mono','Fira Mono',monospace;
+  --nav:220px;--hdr:56px;
+  --shadow-sm:0 1px 3px rgba(0,0,0,.3);
+  --shadow:0 4px 16px rgba(0,0,0,.4);
+  --shadow-lg:0 8px 40px rgba(0,0,0,.5);
+  --transition:.15s ease;
+}
+
+body.light{
+  --bg:#f0f2f8;--bg2:#ffffff;--bg3:#f5f5fc;--bg4:#ebebf5;--bg5:#e2e2ef;
+  --border:rgba(0,0,0,0.07);--border2:rgba(0,0,0,0.11);--border3:rgba(0,0,0,0.17);
+  --text:#1a1a2e;--text2:#4a4860;--text3:#9997a8;
+  --accent:#6c5ce7;--accent2:#7c6af7;--acbg:rgba(108,92,231,0.08);--acb:rgba(108,92,231,0.22);
+  --abg:rgba(108,92,231,0.08);--aborder:rgba(108,92,231,0.22);
+  --green:#2da870;--gbg:rgba(45,168,112,0.08);--gborder:rgba(45,168,112,0.22);
+  --gnbg:rgba(45,168,112,0.1);--gnb:rgba(45,168,112,0.28);
+  --amber:#d4870a;--ambg:rgba(212,135,10,0.08);--amborder:rgba(212,135,10,0.22);
+  --red:#d94040;--rbg:rgba(217,64,64,0.08);--rborder:rgba(217,64,64,0.22);
+  --rdbg:rgba(217,64,64,0.1);--rdb:rgba(217,64,64,0.28);
+  --blue:#3a8fd9;--bbg:rgba(58,143,217,0.08);--bborder:rgba(58,143,217,0.22);
+  --teal:#1aaa96;--tbg:rgba(26,170,150,0.08);--tborder:rgba(26,170,150,0.22);
+  --tlbg:rgba(26,170,150,0.08);--tlborder:rgba(26,170,150,0.22);
+  --pink:#d4569a;--pk:#d4569a;--pbg:rgba(212,86,154,0.08);--pborder:rgba(212,86,154,0.2);
+  --shadow-sm:0 1px 3px rgba(0,0,0,.06);
+  --shadow:0 4px 16px rgba(0,0,0,.1);
+  --shadow-lg:0 8px 40px rgba(0,0,0,.15);
+}
+
+body.light .sidebar{background:#ffffff;border-color:rgba(0,0,0,0.08)}
+body.light .topbar{background:#ffffff;border-color:rgba(0,0,0,0.08)}
+body.light .lbox{box-shadow:0 4px 24px rgba(0,0,0,0.08)}
+body.light #login-screen{background:#f0f2f8;background-image:radial-gradient(ellipse at 20% 50%,rgba(108,92,231,.06) 0%,transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(45,168,112,.04) 0%,transparent 50%)}
+body.light .kb-card{background:#fff}
+body.light .wstabs{background:#f5f5fc}
+body.light .modal{background:#fff;box-shadow:0 8px 40px rgba(0,0,0,.15)}
+body.light .toastEl{background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.12)}
+body.light input,body.light select,body.light textarea{color:#1a1a2e}
+body.light .finp,body.light .fsel,body.light .ftxt,body.light .sinp,body.light .fi,body.light .stage-select,body.light .other-inp{background:#f5f5fc;color:#1a1a2e}
+body.light .fsel option,body.light .stage-select option{background:#ffffff;color:#1a1a2e}
+body.light .moverlay{background:rgba(0,0,0,.25)}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:14px;line-height:1.5;height:100vh;overflow:hidden}
+
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideDown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes scaleIn{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:scale(1)}}
+@keyframes timerPulse{0%,100%{opacity:1}50%{opacity:.6}}
+@keyframes successPulse{0%{transform:scale(1)}40%{transform:scale(1.03)}100%{transform:scale(1)}}
+.fade{animation:fadeIn .25s ease both}
+.fade2{animation:fadeIn .25s ease .06s both}
+.fade3{animation:fadeIn .25s ease .12s both}
+.slide-up{animation:slideUp .25s ease both}
+.timer-live{animation:timerPulse 1.5s ease-in-out infinite}
+.success-pulse{animation:successPulse .4s ease}
+
+#login-screen{display:flex;align-items:center;justify-content:center;height:100vh;background:var(--bg);background-image:radial-gradient(ellipse at 20% 50%,rgba(124,106,247,.08) 0%,transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(78,202,139,.05) 0%,transparent 50%)}
+.lbox{width:380px;background:var(--bg2);border:.5px solid var(--border2);border-radius:16px;padding:40px 36px;animation:scaleIn .35s ease;box-shadow:var(--shadow-lg)}
+.logo-wrap{display:flex;align-items:center;gap:10px;margin-bottom:32px}
+
+/* Remaining legacy stylesheet is served from /assets/legacy/reference.css */

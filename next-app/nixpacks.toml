@@ -1,0 +1,12 @@
+[build]
+dependsOn = ["nodejs"]
+
+[providers.nodejs]
+nixpacks.node = "20"
+
+[build.commands]
+install = "npm ci"
+build = "npm run build"
+
+[start]
+run = "npm run migrate && npm run start -- --port $PORT --hostname 0.0.0.0"

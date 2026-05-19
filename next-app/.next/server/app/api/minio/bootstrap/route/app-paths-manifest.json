@@ -1,0 +1,3 @@
+{
+  "/api/minio/bootstrap/route": "app/api/minio/bootstrap/route.js"
+}
