@@ -1,0 +1,781 @@
+
+<!-- LOGIN -->
+<div id="login-screen">
+  <div class="lbox">
+    <div class="logo-wrap" style="display:flex;flex-direction:column;align-items:center;gap:6px"><img id="toplogo" src="" style="height:40px;width:auto" alt="Gateway Group"><div class="logo-tx" style="font-size:15px;text-align:center">Marketing<span>OS</span></div></div>
+    <div class="lh">Welcome back</div><div class="ls">Sign in to your workspace</div>
+    <div class="fg"><label class="fl">Username</label><input class="fi" id="lu" placeholder="Enter username" autocomplete="off"/></div>
+    <div class="fg"><label class="fl">Password</label><input class="fi" id="lp" type="password" placeholder="Enter password"/></div>
+    <button class="lbtn" onclick="doLogin()">Sign in →</button>
+    <div class="lerr" id="lerr">Incorrect username or password</div>
+    <div class="demo-accs"><div class="demo-lbl">Quick access</div><div class="demo-list" id="demo-list">
+      <div class="demo-item" onclick="quickLogin('admin','admin123')"><div class="dii"><div class="dav" style="background:#7c6af722;color:#7c6af7">RK</div><div><div style="font-size:12px;font-weight:500">Raj Kumar</div><div style="font-size:11px;color:var(--text3)">Super Admin</div></div></div><div style="font-size:11px;color:var(--accent2)">Use →</div></div>
+      <div class="demo-item" onclick="quickLogin('priya','member123')"><div class="dii"><div class="dav" style="background:#4eca8b22;color:#4eca8b">PS</div><div><div style="font-size:12px;font-weight:500">Priya Shah</div><div style="font-size:11px;color:var(--text3)">SAM · Account Manager</div></div></div><div style="font-size:11px;color:var(--accent2)">Use →</div></div>
+      <div class="demo-item" onclick="quickLogin('arjun','member123')"><div class="dii"><div class="dav" style="background:#5baef722;color:#5baef7">AM</div><div><div style="font-size:12px;font-weight:500">Arjun Mehta</div><div style="font-size:11px;color:var(--text3)">Specialist · SEO</div></div></div><div style="font-size:11px;color:var(--accent2)">Use →</div></div>
+      <div class="demo-item" onclick="quickLogin('client','client123')"><div class="dii"><div class="dav" style="background:#2dd4bf22;color:#2dd4bf">AK</div><div><div style="font-size:12px;font-weight:500">Aisha Kapoor</div><div style="font-size:11px;color:var(--text3)">Owner · TechNest</div></div></div><div style="font-size:11px;color:var(--accent2)">Use →</div></div>
+      <div class="demo-item" onclick="quickLogin('dev','client123')"><div class="dii"><div class="dav" style="background:#a78bfa22;color:#a78bfa">DP</div><div><div style="font-size:12px;font-weight:500">Dev Patel</div><div style="font-size:11px;color:var(--text3)">Co-Owner · AutoDrive</div></div></div><div style="font-size:11px;color:var(--accent2)">Use →</div></div>
+    </div>
+    <div style="margin-top:16px;padding-top:14px;border-top:.5px solid var(--border);text-align:center">
+      <div style="font-size:11px;color:var(--text3);margin-bottom:8px">If login is not working, reset app data</div>
+      <button onclick="hardReset()" style="background:var(--rbg);border:.5px solid var(--rborder);border-radius:var(--rsm);padding:6px 16px;color:var(--red);font-family:var(--font);font-size:12px;cursor:pointer">↺ Reset &amp; reload</button>
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app">
+  <div class="layout">
+    <div class="sidebar">
+      <div class="sb-hdr" style="display:flex;flex-direction:column;align-items:center;gap:4px"><img id="sblogo" src="" style="height:32px;width:auto" alt="Gateway Group"><div class="sb-name" style="font-size:12px;text-align:center">Marketing<span>OS</span></div></div>
+      <div class="sb-body">
+        <div class="sb-sec">
+          <div class="sb-lbl">Workspace</div>
+          <div class="navi nb-dashboard-nav active" onclick="showScreen('dashboard',this)"><span class="nav-ic">⊞</span>Dashboard</div>
+          <div class="navi nb-brands-nav" onclick="showScreen('brands',this)"><span class="nav-ic">◈</span>Brands<span class="nbadge" id="nb-brands">12</span></div>
+          <div class="navi nb-playbook-nav" onclick="showScreen('playbook',this)"><span class="nav-ic">◎</span>Playbook</div>
+        </div>
+        <div class="sb-sec">
+          <div class="sb-lbl">Work</div>
+          <div class="navi nb-approvals-nav" onclick="showScreen('approvals',this);buildApprovals()" style="display:none"><span class="nav-ic">✅</span>Approvals<span class="nbadge a" id="nb-approvals">0</span></div>
+          <div class="navi nb-myassets-nav" onclick="showScreen('myassets',this);buildMyAssets()" style="display:none"><span class="nav-ic">📁</span>My Assets<span class="nbadge" id="nb-myassets" style="display:none">0</span></div>
+          <div class="navi nb-mybrand-nav" onclick="showScreen('mybrand',this);buildMyBrand()" style="display:none"><span class="nav-ic">◈</span>My Brand</div>
+          <div class="navi nb-tasks-nav" onclick="showScreen('tasks',this)"><span class="nav-ic">◻</span>Tasks<span class="nbadge a" id="nb-tasks">0</span></div>
+          <div class="navi nb-campaigns-nav" onclick="showScreen('campaigns',this)"><span class="nav-ic">◇</span>Campaigns</div>
+          <div class="navi nb-assets-nav" onclick="showScreen('assets',this)"><span class="nav-ic">◁</span>Assets</div>
+          <div class="navi nb-prompts-nav" onclick="showScreen('prompts',this);buildPrompts()"><span class="nav-ic">💡</span>Prompt Repository<span class="nbadge" id="nb-prompts">0</span></div>
+          <div class="navi nb-productivity-nav" onclick="showScreen('productivity',this)"><span class="nav-ic">◎</span>Productivity</div>
+          <div class="navi nb-reports-nav" onclick="showScreen('reports',this)"><span class="nav-ic">◈</span>Reports</div>
+        </div>
+        <div class="sb-sec" id="admin-nav" style="display:none">
+          <div class="sb-lbl">Admin</div>
+          <div class="navi" onclick="showScreen('team',this)"><span class="nav-ic">◉</span>Team<span class="nbadge" id="nb-team">5</span></div>
+          <div class="navi nb-lookups-nav" onclick="showScreen('lookups',this);buildLookups()" style="display:none"><span class="nav-ic">🗂</span>Lookups</div>
+          <div class="navi" onclick="showScreen('settings',this)"><span class="nav-ic">◌</span>Settings</div>
+        </div>
+      </div>
+      <div class="sb-foot">
+        <div class="ucard">
+          <div class="uav" id="sb-av"></div>
+          <div style="flex:1;min-width:0"><div class="uname" id="sb-nm"></div><div class="urole" id="sb-rl"></div></div>
+          <button class="logout-btn" onclick="openModal('logout')" title="Sign out" style="display:flex;align-items:center;gap:4px;font-size:11px;font-weight:500;padding:5px 8px;border-radius:var(--rsm);color:var(--text3);border:.5px solid transparent">
+            <span style="font-size:13px">⇥</span> Logout
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="topbar">
+        <div class="tbl"><div id="topbar-bc"><div class="ptitle">Dashboard</div></div></div>
+        <div class="tbr">
+          <button class="tbtn" id="notif-btn" onclick="openNotifications()" style="position:relative">🔔<span id="notif-badge" style="display:none;position:absolute;top:-4px;right:-4px;background:var(--red);color:#fff;font-size:9px;font-weight:700;padding:1px 5px;border-radius:10px;min-width:16px;text-align:center"></span></button>
+          <button class="tbtn" id="theme-btn" onclick="toggleTheme()" title="Toggle light/dark mode" style="font-size:15px;padding:6px 10px">🌙</button>
+          <button class="tbtn p spec-hide" id="primary-btn" onclick="handlePrimary()" style="display:none">+ New task</button>
+        </div>
+      </div>
+      <div class="content">
+
+        <!-- DASHBOARD -->
+        <div class="screen" id="screen-dashboard">
+          <div class="fade"><div class="gth" id="greet-h">Good morning 👋</div><div class="gts" id="greet-s">Here's your overview</div></div>
+          <div id="dash-focus" class="focus-strip fade" style="background:var(--bg2);border-color:var(--border);min-height:48px"></div>
+          <div class="stats-row fade2">
+            <div class="sc"><div class="sl">Active brands</div><div class="sv" id="dash-bc">12</div><div class="sch pos">↑ 2 this month</div></div>
+            <div class="sc"><div class="sl">Open tasks</div><div class="sv" id="dash-tc">0</div><div class="sch" style="color:var(--amber)" id="dash-ts">Loading...</div></div>
+            <div class="sc"><div class="sl">In review</div><div class="sv" id="dash-rc">0</div><div class="sch" style="color:var(--blue)">Awaiting approval</div></div>
+            <div class="sc" id="admin-stat"><div class="sl">Team members</div><div class="sv" id="dash-mcount">5</div><div class="sch neu">→ Active</div></div>
+          </div>
+          <div class="g2 fade3">
+            <div class="card"><div class="ch"><div class="ct">My tasks today</div><div class="ca" onclick="showScreen('tasks',null)">View all →</div></div><div class="cb" id="dash-tasks-list"></div></div>
+            <div class="card"><div class="ch"><div class="ct">Brand health</div><div class="ca" onclick="showScreen('brands',null)">All brands →</div></div><div class="cb" id="dash-brands-list"></div></div>
+            <div class="card"><div class="ch"><div class="ct">🎯 Active campaigns</div><div class="ca" onclick="showScreen('campaigns',null)">View all →</div></div><div class="cb" id="dash-campaigns-list"></div></div>
+          </div>
+          <div class="card fade3"><div class="ch"><div class="ct">Team activity</div></div><div class="cb" id="dash-activity"></div></div>
+          <!-- Owner change requests panel — SAM/BM only, hidden when empty -->
+          <div id="dash-owner-feedback" style="background:var(--bg2);border:.5px solid var(--rborder);border-radius:var(--r);padding:16px 18px;display:none"></div>
+        </div>
+
+        <!-- BRANDS -->
+        <div class="screen" id="screen-brands">
+          <div class="stb">
+            <div class="ftabs">
+              <div class="ftab active" onclick="filterBrands('all',this)">All</div>
+              <div class="ftab" onclick="filterBrands('archived',this)">Archived</div>
+            </div>
+            <div style="display:flex;gap:8px;align-items:center">
+              <input class="sinp" placeholder="🔍 Search..." oninput="searchBrands(this.value)"/>
+              <button class="tbtn p" onclick="openAddBrandModal()">+ Add brand</button>
+            </div>
+          </div>
+          <div class="bgrid" id="brands-grid"></div>
+        </div>
+
+
+
+
+
+        <!-- WORKSPACE -->
+        <div class="screen" id="screen-workspace">
+          <div id="ws-header" class="wsh fade"></div>
+          <div class="wstabs">
+            <div class="wstab active" onclick="showWsPanel('overview',this)">Overview</div>
+            <div class="wstab" onclick="showWsPanel('pim',this)">Brand Knowledge</div>
+            <div class="wstab" onclick="showWsPanel('monthly',this)">Monthly Plan</div>
+            <div class="wstab" onclick="showWsPanel('content',this)">📅 Calendar</div>
+            <div class="wstab" onclick="showWsPanel('assets',this)">Assets</div>
+            <div class="wstab" onclick="showWsPanel('pubqueue',this)">📤 Publishing Queue<span id="ws-pubqueue-badge" style="display:none;margin-left:5px;background:var(--amber);color:#fff;font-size:9px;font-weight:700;padding:1px 6px;border-radius:9px;vertical-align:middle"></span></div>
+            <div class="wstab" onclick="showWsPanel('time',this)">⏱ Worklog</div>
+          </div>
+          <div id="ws-overview" class="wsp active"></div>
+          <div id="ws-pim" class="wsp"></div>
+          <div id="ws-monthly" class="wsp"></div>
+          <div id="ws-content" class="wsp"></div>
+          <div id="ws-assets" class="wsp"></div>
+          <div id="ws-pubqueue" class="wsp"></div>
+          <div id="ws-time" class="wsp"></div>
+        </div>
+
+        <!-- PLAYBOOK -->
+        <div class="screen" id="screen-playbook">
+          <div class="g2">
+            <div class="card" style="padding:18px;cursor:pointer" onclick="toast('📖 PIM guide','var(--accent)')"><div style="font-size:24px;margin-bottom:10px">🔍</div><div style="font-size:14px;font-weight:600;margin-bottom:4px">PIM methodology</div><div style="font-size:12px;color:var(--text2)">Perception · Influence · Moment of truth</div></div>
+            <div class="card" style="padding:18px;cursor:pointer" onclick="toast('🎯 TEMCA guide','var(--accent)')"><div style="font-size:24px;margin-bottom:10px">🎯</div><div style="font-size:14px;font-weight:600;margin-bottom:4px">TEMCA campaigns</div><div style="font-size:12px;color:var(--text2)">Target · Elevator · Medium · Creative · Analysis</div></div>
+            <div class="card" style="padding:18px;cursor:pointer" onclick="toast('✅ G7 guide','var(--accent)')"><div style="font-size:24px;margin-bottom:10px">📋</div><div style="font-size:14px;font-weight:600;margin-bottom:4px">G7 activity system</div><div style="font-size:12px;color:var(--text2)">7 recurring activities per brand</div></div>
+            <div class="card" style="padding:18px;cursor:pointer" onclick="toast('📁 Asset guide','var(--accent)')"><div style="font-size:24px;margin-bottom:10px">📁</div><div style="font-size:14px;font-weight:600;margin-bottom:4px">Asset management</div><div style="font-size:12px;color:var(--text2)">Upload, tag and manage brand files</div></div>
+          </div>
+        </div>
+
+        <!-- ═══════════ TASKS SCREEN ═══════════ -->
+        <div class="screen" id="screen-tasks">
+          <div class="task-toolbar">
+            <div class="task-toolbar-left">
+              <div class="view-toggle">
+                <button class="vt-btn active" id="vt-kanban" onclick="setView('kanban')">⊞ Kanban</button>
+                <button class="vt-btn" id="vt-list" onclick="setView('list')">☰ List</button>
+              </div>
+              <div class="task-filters" id="task-filters">
+                <div class="tf active" onclick="filterTasks('all',this)">All</div>
+                <div class="tf" onclick="filterTasks('mine',this)">Mine</div>
+                <div class="tf" onclick="filterTasks('high',this)">🔴 High</div>
+                <div class="tf" onclick="filterTasks('review',this)">In review</div>
+                <div class="tf" onclick="filterTasks('overdue',this)">Overdue</div>
+              </div>
+              <select id="task-brand-filter" onchange="CTaskBrandFilter=this.value;buildTaskViews()"
+                style="padding:5px 10px;background:var(--bg3);border:.5px solid var(--border);border-radius:var(--rsm);font-family:var(--font);font-size:12px;color:var(--text2);cursor:pointer;outline:none">
+                <option value="">All brands</option>
+              </select>
+            </div>
+            <button class="tbtn p" onclick="openAddTask()" class="spec-hide">+ New task</button>
+          </div>
+          <div id="task-view-kanban"><div class="kanban" id="kanban-board"></div></div>
+          <div id="task-view-list" style="display:none">
+            <div class="task-list-wrap">
+              <div class="task-list-hdr"><div>Task</div><div>Stage</div><div>Priority</div><div>Brand</div><div>Due</div><div>Assignee</div><div>Score</div></div>
+              <div id="task-list-body"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CAMPAIGNS -->
+        <div class="screen" id="screen-campaigns">
+          <div style="padding:20px;max-width:1000px;margin:0 auto">
+            <!-- Header -->
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:8px">
+              <div><div style="font-size:18px;font-weight:600">Campaigns</div><div style="font-size:12px;color:var(--text3);margin-top:2px">All campaigns across brands</div></div>
+              <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+                <input class="sinp" id="camp-search" placeholder="🔍 Search..." oninput="buildCampaignsScreen()" style="width:160px"/>
+                <select class="fsel" id="camp-brand-filter" onchange="buildCampaignsScreen()" style="width:150px"><option value="">All brands</option></select>
+                <div style="position:relative;display:flex;align-items:center">
+                  <input type="month" id="camp-month-filter" onchange="buildCampaignsScreen()" style="width:155px;padding:6px 10px;background:var(--bg3);border:.5px solid var(--border);border-radius:var(--rsm);color:var(--text);font-family:var(--font);font-size:12px;cursor:pointer;outline:none;color-scheme:dark"/>
+                  <button onclick="document.getElementById('camp-month-filter').value='';buildCampaignsScreen()" style="margin-left:4px;background:var(--bg3);border:.5px solid var(--border);border-radius:var(--rsm);padding:5px 8px;color:var(--text3);cursor:pointer;font-size:11px;line-height:1" title="Clear">✕</button>
+                </div>
+              </div>
+            </div>
+            <!-- Status chips -->
+            <div id="camp-status-chips" style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px"></div>
+            <!-- Body -->
+            <div id="campaigns-screen-body"></div>
+          </div>
+        </div>
+
+        <!-- ASSETS -->
+        <div class="screen" id="screen-assets">
+          <div style="padding:20px;max-width:960px;margin:0 auto">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:8px">
+              <div><div style="font-size:18px;font-weight:600">Asset Library</div><div style="font-size:12px;color:var(--text3);margin-top:2px">Templates &amp; brand files</div></div>
+            </div>
+            <div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap">
+              <input class="sinp" id="global-asset-search" placeholder="🔍 Search assets..." oninput="buildGlobalAssets()" style="flex:1;min-width:160px"/>
+              <select class="fsel" id="global-asset-cat" onchange="buildGlobalAssets()" style="width:160px"><option value="">All categories</option></select>
+              <select class="fsel" id="global-asset-brand" onchange="buildGlobalAssets()" style="width:160px"><option value="">All brands</option></select>
+            </div>
+            <div id="global-assets-body"></div>
+          </div>
+        </div>
+
+        <!-- TEAM -->
+        <div class="screen" id="screen-team">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+            <div style="font-size:15px;font-weight:600">Team members <span style="font-size:13px;font-weight:400;color:var(--text2)" id="team-count"></span></div>
+            <button class="tbtn p" onclick="openAddMemberModal()">+ Add member</button>
+          </div>
+          <div id="team-list"></div>
+        </div>
+
+        <!-- REPORTS -->
+        <!-- PRODUCTIVITY DASHBOARD - Phase 4 (replaces Reports) -->
+        <!-- MONTHLY REPORTS - Phase 5 -->
+        <div class="screen" id="screen-reports">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:8px">
+            <div>
+              <div style="font-size:18px;font-weight:600;letter-spacing:-.02em">Monthly reports</div>
+              <div style="font-size:13px;color:var(--text2);margin-top:2px">Auto-generated &middot; editable &middot; per brand</div>
+            </div>
+            <div style="display:flex;gap:8px;align-items:center">
+              <select class="fsel" id="rep-month" style="width:130px" onchange="buildReports()"></select>
+              <select class="fsel" id="rep-brand" style="width:150px" onchange="buildReports()"></select>
+              <button class="tbtn p" onclick="exportReport()">&#8595; Export</button>
+            </div>
+          </div>
+          <div id="rep-content"></div>
+        </div>
+
+        <div class="screen" id="screen-productivity">
+          <div style="margin-bottom:16px">
+            <div style="font-size:18px;font-weight:600;letter-spacing:-.02em" id="prod-title">Productivity overview</div>
+            <div style="font-size:13px;color:var(--text2);margin-top:3px" id="prod-sub">Team performance across tasks, quality and G7</div>
+          </div>
+          <!-- Summary stats row -->
+          <div class="stats-row fa2" id="prod-stats"></div>
+          <!-- Main grid -->
+          <div class="g2 fa3" style="margin-bottom:12px">
+            <!-- Task completion per member -->
+            <div class="card" id="prod-member-card">
+              <div class="ch"><div class="ct" id="prod-member-title">Team task completion</div></div>
+              <div class="cb" id="prod-member-list"></div>
+            </div>
+            <!-- Quality scores -->
+            <div class="card">
+              <div class="ch"><div class="ct" id="prod-quality-title">Quality scores</div></div>
+              <div class="cb" id="prod-quality-list"></div>
+            </div>
+          </div>
+          <div class="g2 fa3" style="margin-bottom:12px">
+            <!-- G7 progress across brands -->
+            <div class="card">
+              <div class="ch"><div class="ct">G7 activity progress</div><div class="ca" onclick="showScreen('brands',null)">All brands →</div></div>
+              <div class="cb" id="prod-g7-list"></div>
+            </div>
+            <!-- Brand workload -->
+            <div class="card">
+              <div class="ch"><div class="ct" id="prod-workload-title">Brand workload</div></div>
+              <div class="cb" id="prod-workload-list"></div>
+            </div>
+          </div>
+          <div class="g2 fa3">
+            <!-- Overdue tasks -->
+            <div class="card">
+              <div class="ch"><div class="ct">Overdue tasks</div><div class="ca" onclick="showScreen('tasks',null)">View tasks →</div></div>
+              <div class="cb" id="prod-overdue-list"></div>
+            </div>
+            <!-- Campaign summary -->
+            <div class="card">
+              <div class="ch"><div class="ct">Campaign activity</div><div class="ca" onclick="showScreen('campaigns',null)">All →</div></div>
+              <div class="cb" id="prod-camp-list"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SETTINGS -->
+        <div class="screen" id="screen-settings">
+          <div class="stsec"><div class="stst">Team & access</div><div class="strow"><div><div class="srl">Team members</div><div class="srs">Manage accounts and roles</div></div><button class="tbtn" onclick="showScreen('team',null)">Manage →</button></div><div class="strow"><div><div class="srl">Admin-only views</div><div class="srs">Productivity and reports restricted to admins</div></div><div class="tog on" onclick="this.classList.toggle('on')"></div></div></div>
+          <div class="stsec"><div class="stst">Data & storage</div><div class="strow"><div><div class="srl">Auto-save</div><div class="srs">All changes saved to browser storage automatically</div></div><span class="badge bg">Active</span></div><div class="strow"><div><div class="srl">Reset all data</div><div class="srs">Clear saved data and restore seed defaults — cannot be undone</div></div><button class="tbtn" style="background:var(--rbg);border-color:var(--rborder);color:var(--red)" onclick="if(confirm('Reset all data to defaults? This cannot be undone.'))clearData()">Reset →</button></div></div>
+          <div class="stsec"><div class="stst">Notifications</div><div class="strow"><div><div class="srl">Task due reminders</div><div class="srs">Alert 24hrs before due</div></div><div class="tog on" onclick="this.classList.toggle('on')"></div></div><div class="strow"><div><div class="srl">Weekly digest</div><div class="srs">Monday morning summary</div></div><div class="tog" onclick="this.classList.toggle('on')"></div></div></div>
+          <!-- INTEGRATIONS -->
+          <div class="stsec">
+            <div class="stst" style="display:flex;align-items:center;justify-content:space-between">
+              <span>🔌 Publishing integrations</span>
+              <button class="tbtn p" onclick="openAddIntegration()">+ Add</button>
+            </div>
+            <div style="padding:10px 16px;font-size:11px;color:var(--text3);border-bottom:.5px solid var(--border)">Connect scheduling tools (Postiz, Buffer, Hootsuite, webhooks etc.) — used in the Publishing Queue to send approved posts.</div>
+            <div id="integrations-list"></div>
+            <div id="integrations-empty" style="padding:20px;text-align:center;font-size:12px;color:var(--text3)">No integrations added yet — click + Add to connect a scheduling tool</div>
+          </div>
+          <div class="stsec"><div class="stst">App</div><div class="strow"><div><div class="srl">Version</div><div class="srs">Marketing OS · Phase 3</div></div><span style="font-size:11px;color:var(--text3);font-family:var(--mono)">v7.0.0</span></div></div>
+        </div>
+
+        <!-- APPROVALS -->
+        <div id="screen-approvals" class="screen" style="padding:20px;max-width:960px;margin:0 auto">
+          <!-- Owner Header -->
+          <div style="margin-bottom:20px">
+            <div style="font-size:20px;font-weight:700;margin-bottom:2px" id="owner-greeting">Good day 👋</div>
+            <div style="font-size:12px;color:var(--text3)" id="approvals-subtitle">Pieces waiting for your review</div>
+          </div>
+          <!-- Stats row -->
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px" id="owner-stats">
+            <div style="background:var(--ambg);border:.5px solid var(--amborder);border-radius:var(--r);padding:14px;text-align:center">
+              <div style="font-size:26px;font-weight:800;color:var(--amber)" id="owner-stat-pending">0</div>
+              <div style="font-size:11px;color:var(--amber);margin-top:2px">Pending approval</div>
+            </div>
+            <div style="background:var(--gnbg);border:.5px solid var(--gnb);border-radius:var(--r);padding:14px;text-align:center">
+              <div style="font-size:26px;font-weight:800;color:var(--green)" id="owner-stat-approved">0</div>
+              <div style="font-size:11px;color:var(--green);margin-top:2px">Approved this month</div>
+            </div>
+            <div style="background:var(--bg2);border:.5px solid var(--border);border-radius:var(--r);padding:14px;text-align:center">
+              <div style="font-size:26px;font-weight:800;color:var(--accent2)" id="owner-stat-campaigns">0</div>
+              <div style="font-size:11px;color:var(--text3);margin-top:2px">Active campaigns</div>
+            </div>
+          </div>
+          <!-- Brand filter -->
+          <div id="approvals-filter" data-active="all" style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px"></div>
+          <!-- Pending -->
+          <div id="approvals-pending" style="margin-bottom:24px"></div>
+          <!-- Done / history -->
+          <div id="approvals-done"></div>
+        </div>
+
+        <!-- PROMPTS (shared workspace library) -->
+        <div id="screen-prompts" class="screen" style="padding:20px;max-width:1200px;margin:0 auto">
+          <div id="prompts-header" style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:18px;gap:12px;flex-wrap:wrap"></div>
+          <div id="prompts-toolbar" style="display:flex;flex-direction:column;gap:12px;margin-bottom:16px"></div>
+          <div id="prompts-grid"></div>
+        </div>
+
+        <!-- MY ASSETS (Owner) -->
+        <div id="screen-myassets" class="screen" style="padding:20px;max-width:1100px;margin:0 auto">
+          <div id="myassets-body"></div>
+        </div>
+
+        <!-- MY BRAND (Owner) -->
+        <div id="screen-mybrand" class="screen" style="padding:20px;max-width:1100px;margin:0 auto">
+          <div id="mybrand-body"></div>
+        </div>
+
+        <!-- LOOKUPS -->
+        <div id="screen-lookups" class="screen" style="padding:20px;max-width:860px;margin:0 auto">
+          <div style="font-size:18px;font-weight:700;margin-bottom:4px">Lookups</div>
+          <div style="font-size:12px;color:var(--text3);margin-bottom:20px">Manage dropdown options used across the app — only SAM can edit these</div>
+          <div id="lookups-body"></div>
+        </div>
+
+        <!-- MY WORK — Specialist Kanban -->
+        <div id="screen-mywork" class="screen">
+          <div style="padding:16px 20px 0;flex-shrink:0">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px">
+              <div>
+                <div style="font-size:18px;font-weight:600;letter-spacing:-.02em">My Work</div>
+                <div style="font-size:12px;color:var(--text3);margin-top:2px" id="mywork-subtitle">Your assigned tasks</div>
+              </div>
+              <div style="display:flex;gap:8px;align-items:center">
+                <input class="sinp" id="mw-search" placeholder="🔍 Search..." oninput="filterMyWork()" style="width:160px"/>
+                <select class="fsel" id="mw-brand-filter" onchange="filterMyWork()" style="width:140px;font-size:12px"><option value="">All brands</option></select>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:0">
+              <div style="padding:8px 12px;border-bottom:2px solid var(--text3)"><span style="font-size:10px;font-weight:700;color:var(--text3);letter-spacing:.08em">TO DO</span> <span id="mw-count-todo" style="font-size:10px;color:var(--text3);margin-left:4px"></span></div>
+              <div style="padding:8px 12px;border-bottom:2px solid var(--blue)"><span style="font-size:10px;font-weight:700;color:var(--blue);letter-spacing:.08em">IN PROGRESS</span> <span id="mw-count-inprogress" style="font-size:10px;color:var(--blue);margin-left:4px"></span></div>
+              <div style="padding:8px 12px;border-bottom:2px solid var(--amber)"><span style="font-size:10px;font-weight:700;color:var(--amber);letter-spacing:.08em">REVIEW</span> <span id="mw-count-review" style="font-size:10px;color:var(--amber);margin-left:4px"></span></div>
+              <div style="padding:8px 12px;border-bottom:2px solid var(--green)"><span style="font-size:10px;font-weight:700;color:var(--green);letter-spacing:.08em">COMPLETED</span> <span id="mw-count-completed" style="font-size:10px;color:var(--green);margin-left:4px"></span></div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:10px 20px 20px;flex:1;overflow-y:auto;align-items:start">
+            <div id="mw-col-todo" style="display:flex;flex-direction:column;gap:8px"></div>
+            <div id="mw-col-inprogress" style="display:flex;flex-direction:column;gap:8px"></div>
+            <div id="mw-col-review" style="display:flex;flex-direction:column;gap:8px"></div>
+            <div id="mw-col-completed" style="display:flex;flex-direction:column;gap:8px"></div>
+          </div>
+          <div id="mw-detail-overlay" style="display:none;position:absolute;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(3px);z-index:50;padding:20px;overflow-y:auto" onclick="if(event.target===this)closeMWDetail()">
+            <div id="mw-detail-panel" style="background:var(--bg2);border:.5px solid var(--border2);border-radius:var(--rlg);max-width:560px;margin:0 auto;animation:slideUp .25s ease"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ MODALS ═══════ -->
+  <div class="moverlay" id="modal-overlay" onclick="closeModalOutside(event)">
+
+    <!-- Logout -->
+    <div class="modal sm" id="modal-logout"><div class="modal-p"><div class="mtit">Sign out?</div><div class="msub">You'll be returned to the login screen.</div><div class="macts"><button class="mbtn c" onclick="closeModal()">Cancel</button><button class="mbtn ok" onclick="doLogout()">Sign out</button></div></div></div>
+
+    <!-- Prompt: view / copy -->
+    <div class="modal md" id="modal-prompt-view"><div class="modal-p" id="modal-prompt-view-body"></div></div>
+
+    <!-- Prompt: add / edit -->
+    <div class="modal md" id="modal-prompt-edit"><div class="modal-p">
+      <div class="mtit" id="prompt-edit-title">Add prompt</div>
+      <div class="msub">Share a reusable prompt with your team.</div>
+      <input type="hidden" id="pe-id"/>
+      <div class="form-row">
+        <div class="fg2"><label class="flbl">Title * <span id="pe-title-count" style="color:var(--text3);font-weight:400;float:right">0 / 100</span></label><input class="finp" id="pe-title" maxlength="100" placeholder="e.g. Landing page hero copy" oninput="document.getElementById('pe-title-count').textContent=this.value.length+' / 100'"/></div>
+        <div class="fg2"><label class="flbl">Category *</label><select class="fsel" id="pe-category"></select></div>
+      </div>
+      <div class="form-row full">
+        <div class="fg2"><label class="flbl">Description <span id="pe-desc-count" style="color:var(--text3);font-weight:400;float:right">0 / 200</span></label><textarea class="ftxt" id="pe-desc" maxlength="200" style="min-height:60px" placeholder="When and how to use this prompt." oninput="document.getElementById('pe-desc-count').textContent=this.value.length+' / 200'"></textarea></div>
+      </div>
+      <div class="form-row full">
+        <div class="fg2"><label class="flbl">Prompt content *</label><textarea class="ftxt" id="pe-content" style="min-height:150px;font-family:var(--mono);font-size:12px;line-height:1.55" placeholder="Paste the full prompt here..."></textarea></div>
+      </div>
+      <div class="form-row full">
+        <div class="fg2"><label class="flbl">Tags (comma-separated, max 5)</label><input class="finp" id="pe-tags" placeholder="e.g. b2b, landing-page, gpt-4"/></div>
+      </div>
+
+      <div class="form-row full">
+        <div class="fg2">
+          <label class="flbl">Attachments <span style="color:var(--text3);font-weight:400">PDF · DOC · XLS · PPT · max 10 MB each</span></label>
+          <div id="pe-dropzone" style="border:1.5px dashed var(--border2);border-radius:var(--rsm);padding:14px;text-align:center;cursor:pointer;transition:border-color .15s,background .15s">
+            <input type="file" id="pe-file-input" multiple accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.presentation" style="display:none"/>
+            <div style="font-size:24px;opacity:.5;margin-bottom:4px">📎</div>
+            <div style="font-size:12px;font-weight:500;color:var(--text2)">Drag &amp; drop files or <span style="color:var(--accent2);text-decoration:underline">click to browse</span></div>
+            <div style="font-size:10px;color:var(--text3);margin-top:2px">Multi-select allowed</div>
+          </div>
+          <div id="pe-attachments" style="margin-top:8px;display:flex;flex-direction:column;gap:5px"></div>
+        </div>
+      </div>
+
+      <div class="macts">
+        <button class="mbtn c" onclick="closeModal()">Cancel</button>
+        <button class="mbtn ok" onclick="savePrompt()" id="pe-submit">Save prompt</button>
+      </div>
+    </div></div>
+
+    <!-- Prompt: confirm delete -->
+    <div class="modal sm" id="modal-prompt-delete"><div class="modal-p">
+      <div class="mtit">Delete this prompt?</div>
+      <div class="msub" id="prompt-delete-sub">This cannot be undone.</div>
+      <div class="macts">
+        <button class="mbtn c" onclick="closeModal()">Cancel</button>
+        <button class="mbtn d" onclick="confirmDeletePrompt()">Delete prompt</button>
+      </div>
+    </div></div>
+
+    <!-- Prompt: category manager (super-admin) -->
+    <div class="modal md" id="modal-prompt-categories"><div class="modal-p">
+      <div class="mtit">Manage prompt categories</div>
+      <div class="msub">Add, edit or remove categories. Categories with prompts can't be deleted.</div>
+      <div id="pcat-list" style="margin-bottom:14px"></div>
+      <div style="background:var(--bg3);border:.5px solid var(--border2);border-radius:var(--rsm);padding:14px;margin-bottom:8px">
+        <div class="form-row" style="margin-bottom:8px">
+          <div class="fg2"><label class="flbl">Icon</label><input class="finp" id="pcat-new-icon" maxlength="4" placeholder="🧠"/></div>
+          <div class="fg2"><label class="flbl">Name *</label><input class="finp" id="pcat-new-name" placeholder="e.g. Research"/></div>
+        </div>
+        <div class="form-row full" style="margin-bottom:8px">
+          <div class="fg2"><label class="flbl">Description</label><input class="finp" id="pcat-new-desc" placeholder="When this category is used"/></div>
+        </div>
+        <button class="mbtn ok" style="font-size:12px" onclick="addPromptCategory()">+ Add category</button>
+      </div>
+      <div class="macts"><button class="mbtn c" onclick="closeModal()">Done</button></div>
+    </div></div>
+
+    <!-- Add brand -->
+    <div class="modal md" id="modal-add-brand"><div class="modal-p">
+      <div class="mtit">Add new brand</div><div class="msub">Set up team, ownership and brand workspace.</div>
+
+      <!-- Basic info -->
+      <div class="form-row">
+        <div class="fg2"><label class="flbl">Brand name *</label><input class="finp" id="nb-name" placeholder="e.g. AutoDrive"/></div>
+        <div class="fg2"><label class="flbl">Industry *</label><input class="finp" id="nb-industry" placeholder="e.g. Automotive"/></div>
+      </div>
+
+      <!-- SAM assignment -->
+      <div style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin:12px 0 8px">Team</div>
+      <div class="form-row">
+        <div class="fg2"><label class="flbl">Primary SAM *</label><select class="fsel" id="nb-primary-sam"><option value="">Select SAM</option></select></div>
+        <div class="fg2"><label class="flbl">Secondary SAM</label><select class="fsel" id="nb-secondary-sam"><option value="">Optional</option></select></div>
+      </div>
+      <div class="form-row">
+        <div class="fg2"><label class="flbl">SEO Owner</label><select class="fsel" id="nb-seo-owner"><option value="">Optional</option></select></div>
+        <div class="fg2"><label class="flbl">Creative Owner</label><select class="fsel" id="nb-creative-owner"><option value="">Optional</option></select></div>
+      </div>
+      <div class="form-row">
+        <div class="fg2"><label class="flbl">Video Owner</label><select class="fsel" id="nb-video-owner"><option value="">Optional</option></select></div>
+        <div class="fg2"><label class="flbl">Business Manager</label><select class="fsel" id="nb-biz-manager"><option value="">Optional</option></select></div>
+      </div>
+
+      <!-- Ownership -->
+      <div style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin:12px 0 8px">Ownership</div>
+      <div class="form-row">
+        <div class="fg2">
+          <label class="flbl">Brand Owner</label>
+          <select class="fsel" id="nb-brand-owner-type" onchange="toggleOwnerFields()">
+            <option value="none">No owner yet</option>
+            <option value="existing">Select existing member</option>
+            <option value="new">Create new login</option>
+          </select>
+          <div id="nb-owner-member-wrap" style="display:none;margin-top:6px"><select class="fsel" id="nb-owner-member"></select></div>
+        </div>
+        <div class="fg2">
+          <label class="flbl">Co-Owner</label>
+          <select class="fsel" id="nb-co-owner-type" onchange="toggleCoOwnerFields()">
+            <option value="none">No co-owner yet</option>
+            <option value="existing">Select existing member</option>
+          </select>
+          <div id="nb-co-owner-member-wrap" style="display:none;margin-top:6px"><select class="fsel" id="nb-co-owner-member"></select></div>
+        </div>
+      </div>
+
+      <!-- New owner credentials (shown when "Create new login" picked) -->
+      <div id="nb-owner-new-wrap" style="display:none;background:var(--bg3);border:.5px solid var(--border);border-radius:var(--rsm);padding:12px;margin-top:8px">
+        <div style="font-size:11px;font-weight:600;color:var(--text2);margin-bottom:8px">New owner login</div>
+        <div class="form-row"><div class="fg2"><label class="flbl">Full name *</label><input class="finp" id="nb-client-name" placeholder="e.g. Rahul Gupta"/></div><div class="fg2"><label class="flbl">Email *</label><input class="finp" id="nb-client-email" placeholder="e.g. rahul@brand.com"/></div></div>
+        <div class="form-row"><div class="fg2"><label class="flbl">Username</label><input class="finp" id="nb-client-user" placeholder="e.g. rahul01"/></div><div class="fg2"><label class="flbl" style="display:flex;justify-content:space-between">Password <span style="color:var(--accent2);cursor:pointer;font-weight:400" onclick="regenCreds('nb')">↻ Regenerate</span></label><input class="finp" id="nb-client-pass" placeholder="min 6 chars"/></div></div>
+        <div style="font-size:11px;color:var(--amber);padding:8px;background:var(--ambg);border:.5px solid var(--amborder);border-radius:var(--rsm)">📋 Copy these credentials before saving — share with client</div>
+      </div>
+
+      <div class="macts"><button class="mbtn c" onclick="closeModal()">Cancel</button><button class="mbtn ok" onclick="saveBrand()">Create brand →</button></div>
+    </div></div>
+
+    <!-- Edit brand -->
+    <div class="modal md" id="modal-edit-brand"><div class="modal-p">
+      <div class="mtit">Edit brand</div><div class="msub" id="edit-brand-sub"></div>
+
+      <div class="form-row">
+        <div class="fg2"><label class="flbl">Brand name *</label><input class="finp" id="eb-name"/></div>
+        <div class="fg2"><label class="flbl">Industry *</label><input class="finp" id="eb-industry"/></div>
+      </div>
+
+      <div style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin:12px 0 8px">Team</div>
+      <div class="form-row">
+        <div class="fg2"><label class="flbl">Primary SAM *</label><select class="fsel" id="eb-bm"></select></div>
+        <div class="fg2"><label class="flbl">Secondary SAM</label><select class="fsel" id="eb-secondary-sam"><option value="">Optional</option></select></div>
+      </div>
+      <div class="form-row">
+        <div class="fg2"><label class="flbl">SEO Owner</label><select class="fsel" id="eb-seo-owner"><option value="">Optional</option></select></div>
+        <div class="fg2"><label class="flbl">Creative Owner</label><select class="fsel" id="eb-creative-owner"><option value="">Optional</option></select></div>
+      </div>
+      <div class="form-row">
+        <div class="fg2"><label class="flbl">Video Owner</label><select class="fsel" id="eb-video-owner"><option value="">Optional</option></select></div>
+        <div class="fg2"><label class="flbl">Business Manager</label><select class="fsel" id="eb-biz-manager"><option value="">Optional</option></select></div>
+      </div>
+
+      <div style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin:12px 0 8px">Ownership</div>
+      <div class="form-row">
+        <div class="fg2"><label class="flbl">Brand Owner</label><select class="fsel" id="eb-co-owner"><option value="">None</option></select></div>
+        <div class="fg2"><label class="flbl">Co-Owner</label><select class="fsel" id="eb-co-owner2"><option value="">None</option></select></div>
+      </div>
+
+      <div style="background:var(--bg3);border:.5px solid var(--border);border-radius:var(--rsm);padding:14px;margin:10px 0">
+        <div style="font-size:12px;font-weight:500;margin-bottom:4px;color:var(--text2)">🔑 Client login access</div>
+        <div id="eb-current-client" style="margin-bottom:10px"></div>
+        <div class="form-row" style="margin-bottom:8px">
+          <div class="fg2"><label class="flbl">Action</label>
+            <select class="fsel" id="eb-owner-action" onchange="toggleEditOwnerFields()">
+              <option value="keep">Keep current</option>
+              <option value="existing">Assign existing member</option>
+              <option value="new">Create new login</option>
+              <option value="remove">Remove access</option>
+            </select>
+          </div>
+          <div class="fg2" id="eb-owner-member-wrap" style="display:none"><label class="flbl">Select member</label><select class="fsel" id="eb-owner-member"></select></div>
+        </div>
+        <div id="eb-owner-new-wrap" style="display:none">
+          <div class="form-row"><div class="fg2"><label class="flbl">Name *</label><input class="finp" id="eb-client-name" placeholder="e.g. Rahul Gupta"/></div><div class="fg2"><label class="flbl">Email *</label><input class="finp" id="eb-client-email" placeholder="e.g. rahul@brand.com"/></div></div>
+          <div class="form-row"><div class="fg2"><label class="flbl">Username</label><input class="finp" id="eb-client-user" placeholder="e.g. rene or client01"/></div><div class="fg2"><label class="flbl" style="display:flex;justify-content:space-between">Password <span style="color:var(--accent2);cursor:pointer;font-weight:400" onclick="regenCreds('eb')">↻ Regenerate</span></label><input class="finp" id="eb-client-pass" placeholder="e.g. pass1234 or your own"/></div></div>
+          <div style="background:var(--ambg);border:.5px solid var(--amb);border-radius:var(--rsm);padding:9px 12px;font-size:11px;color:var(--amber)">📋 Copy credentials before saving — share with client to log in</div>
+        </div>
+      </div>
+      <div class="macts"><button class="mbtn c" onclick="closeModal()">Cancel</button><button class="mbtn ok" onclick="updateBrand()">Save changes</button></div>
+    </div></div>
+
+    <!-- Delete brand -->
+    <div class="modal sm" id="modal-delete-brand"><div class="modal-p"><div class="mtit">Delete brand?</div><div class="msub" id="del-brand-sub"></div><div class="dbox">⚠ This permanently deletes the brand, campaigns, assets and PIM data. Cannot be undone.</div><div class="macts"><button class="mbtn c" onclick="closeModal()">Cancel</button><button class="mbtn d" onclick="confirmDeleteBrand()">Delete permanently</button></div></div></div>
+
+    <!-- Archive brand -->
+    <div class="modal sm" id="modal-archive-brand"><div class="modal-p"><div class="mtit" id="arch-title">Archive brand?</div><div class="msub" id="arch-sub"></div><div class="macts"><button class="mbtn c" onclick="closeModal()">Cancel</button><button class="mbtn a" onclick="confirmArchive()">Archive</button></div></div></div>
+
+    <!-- Transfer brand -->
+    <div class="modal sm" id="modal-transfer-brand"><div class="modal-p"><div class="mtit">Transfer brand</div><div class="msub" id="transfer-sub"></div><div class="form-row full"><div class="fg2"><label class="flbl">Transfer to</label><select class="fsel" id="transfer-to"></select></div></div><div class="macts"><button class="mbtn c" onclick="closeModal()">Cancel</button><button class="mbtn ok" onclick="confirmTransfer()">Transfer →</button></div></div></div>
+
+    <!-- Add/Edit task -->
+    <div class="modal" id="modal-add-task"><div class="modal-p">
+      <div class="mtit" id="task-modal-title">New task</div><div class="msub" id="task-modal-sub">Fill in task details</div>
+      <div class="form-row"><div class="fg2"><label class="flbl">Task title *</label><input class="finp" id="tk-title" placeholder="e.g. Publish SMM post"/></div><div class="fg2"><label class="flbl">G7 type</label><select class="fsel" id="tk-g7"><option value="">— Select —</option><option value="G1">G1 — Brand guidelines / Sales kit</option><option value="G2">G2 — Website</option><option value="G3">G3 — SEO</option><option value="G4">G4 — Newsletter</option><option value="G5">G5 — Social Media</option><option value="G6">G6 — PR & Articles</option><option value="G7">G7 — Events</option></select></div></div>
+      <div class="form-row"><div class="fg2"><label class="flbl">Brand *</label><select class="fsel" id="tk-brand"></select></div><div class="fg2"><label class="flbl">Assign to *</label><select class="fsel" id="tk-assign"></select></div></div>
+      <div class="form-row"><div class="fg2"><label class="flbl">Priority</label><select class="fsel" id="tk-priority"><option value="high">🔴 High</option><option value="medium" selected>🟡 Medium</option><option value="low">🟢 Low</option></select></div><div class="fg2"><label class="flbl">Due date</label><input class="finp" id="tk-due" type="date"/></div></div>
+      <div class="form-row"><div class="fg2"><label class="flbl">Stage</label><select class="fsel" id="tk-stage"><option value="todo">To do</option><option value="inprogress">In progress</option><option value="review">In review</option><option value="approved">Approved</option><option value="onhold">On hold</option><option value="completed">Completed</option><option value="remark">Remark</option></select></div><div class="fg2"><label class="flbl">Campaign (optional)</label><select class="fsel" id="tk-campaign"><option value="">— None —</option></select></div></div>
+      <div class="form-row full"><div class="fg2"><label class="flbl">Description / Notes</label><textarea class="ftxt" id="tk-notes" placeholder="Task details, context, requirements..." style="min-height:60px"></textarea></div></div>
+      <div class="form-row full"><div class="fg2"><label class="flbl">Challenges / Blockers</label><textarea class="ftxt" id="tk-challenges" placeholder="Any blockers or challenges to flag..." style="min-height:50px"></textarea></div></div>
+      <div class="macts"><button class="mbtn c" onclick="closeModal()">Cancel</button><button class="mbtn ok" id="task-save-btn" onclick="saveTask()">Create task →</button></div>
+    </div></div>
+
+    <!-- Task detail -->
+    <div class="modal" id="modal-task-detail">
+      <div class="td-header">
+        <div class="td-title-row">
+          <div class="td-title" id="td-title">Task name</div>
+          <button class="td-close" onclick="closeModal()">×</button>
+        </div>
+        <div class="td-meta" id="td-meta"></div>
+      </div>
+      <div class="td-body">
+        <div class="td-section">
+          <div class="td-sec-label">Stage & assignment</div>
+          <div class="td-field-row">
+            <div class="td-field"><div class="td-field-label">Current stage</div><select class="stage-select" id="td-stage" onchange="updateTaskStage(this.value)"></select></div>
+            <div class="td-field"><div class="td-field-label">Assigned to</div><div class="td-field-val" id="td-assignee">—</div></div>
+          </div>
+          <div class="td-field-row">
+            <div class="td-field"><div class="td-field-label">Due date</div><div class="td-field-val" id="td-due">—</div></div>
+            <div class="td-field"><div class="td-field-label">Priority</div><div id="td-priority"></div></div>
+          </div>
+        </div>
+        <!-- Milestone dates from linked content piece -->
+        <div class="td-section" id="td-milestones" style="display:none">
+          <div class="td-sec-label">📅 Milestone dates</div>
+          <div id="td-milestone-content" style="display:grid;grid-template-columns:1fr 1fr;gap:8px"></div>
+        </div>
+        <div class="td-section">
+          <div class="td-sec-label">Quality score (reviewer)</div>
+          <div class="score-input" id="td-score-input"></div>
+        </div>
+        <!-- Brief content from linked content piece -->
+        <div class="td-section" id="td-brief-section" style="display:none">
+          <div class="td-sec-label">📋 Content brief</div>
+          <div id="td-brief-content"></div>
+        </div>
+        <div class="td-section">
+          <div class="td-sec-label">Notes & description</div>
+          <div class="td-field-row full"><div class="td-field"><textarea class="ftxt" id="td-notes-edit" placeholder="Add notes..." style="min-height:60px" oninput="updateTaskField('notes',this.value)"></textarea></div></div>
+        </div>
+        <div class="td-section">
+          <div class="td-sec-label">Challenges / Blockers</div>
+          <div class="td-field-row full"><div class="td-field"><textarea class="ftxt" id="td-challenges-edit" placeholder="Any blockers or challenges..." style="min-height:50px" oninput="updateTaskField('challenges',this.value)"></textarea></div></div>
+        </div>
+        <div class="td-section">
+          <div class="td-sec-label">Proof of work / Attachments</div>
+          <div id="td-files"></div>
+          <button class="tbtn" style="margin-top:8px;font-size:11px" onclick="document.getElementById('task-file-input').click()">+ Attach file</button>
+        </div>
+        <div id="td-bm-actions" style="display:none">
+          <div style="font-size:10px;font-weight:500;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">SAM actions</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button class="btn" style="background:var(--gnbg);border-color:var(--gnb);color:var(--green)" onclick="bmApproveTaskDirect()">✅ Approve directly</button>
+            <button class="btn" style="background:var(--ambg);border-color:var(--amborder);color:var(--amber)" onclick="bmSendTaskToOwner()">📤 Send to owner</button>
+            <button class="btn" style="background:var(--abg);border-color:var(--aborder);color:var(--accent2)" onclick="openReassignTask()">👤 Reassign</button>
+            <button class="btn" style="background:var(--rdbg,#fce4ec);border-color:var(--rdb,#f5c6cb);color:var(--red)" onclick="bmRequestChanges()">🔄 Request changes</button>
+          </div>
+          <div id="td-reassign-box" style="display:none;margin-top:10px;padding:10px;background:var(--bg3);border-radius:var(--rsm)">
+            <div style="font-size:11px;color:var(--text2);margin-bottom:6px">Reassign to:</div>
+            <select id="td-reassign-select" class="fsel" style="font-size:12px;margin-bottom:8px"></select>
+            <div style="display:flex;gap:6px">
+              <button class="btn btn-p btn-sm" onclick="confirmReassignTask()">Reassign</button>
+              <button class="btn btn-s btn-sm" onclick="document.getElementById('td-reassign-box').style.display='none'">Cancel</button>
+            </div>
+          </div>
+          <div id="td-bm-changes-box" style="display:none;margin-top:10px">
+            <textarea id="td-bm-changes-input" class="ftxt" placeholder="What needs to change? (this will be sent to the assignee)" style="min-height:60px;width:100%;font-size:12px"></textarea>
+            <div style="display:flex;gap:6px;margin-top:6px">
+              <button class="btn btn-p btn-sm" onclick="bmRequestChangesConfirm()">Send back</button>
+              <button class="btn btn-s btn-sm" onclick="document.getElementById('td-bm-changes-box').style.display='none'">Cancel</button>
+            </div>
+          </div>
+        </div>
+        <!-- SAM deadline extension approvals -->
+        <div id="td-deadline-requests" style="display:none"></div>
+        <div id="td-completion-note" style="display:none;background:var(--tbg);border:.5px solid rgba(45,212,191,.25);border-radius:var(--rsm);padding:10px 12px;margin-bottom:4px"></div>
+        <div class="td-section">
+          <div class="td-sec-label">💬 Comments</div>
+          <div id="td-comments" style="max-height:200px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;margin-bottom:10px"></div>
+          <div style="display:flex;gap:8px">
+            <textarea id="td-comment-input" class="ftxt" placeholder="Write a message..." style="min-height:40px;max-height:80px;flex:1;font-size:12px;resize:none"></textarea>
+            <button class="btn btn-p btn-sm" style="align-self:flex-end;flex-shrink:0" onclick="addTaskComment()">Send</button>
+          </div>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:4px;flex-wrap:wrap">
+          <button class="btn btn-p" onclick="saveTaskDetail()">Save changes</button>
+          <button class="btn btn-s" onclick="closeModal()">Close</button>
+          <button id="td-inline-reassign-btn" class="btn btn-s" style="display:none" onclick="openInlineReassign()">👤 Reassign</button>
+          <button id="td-deadline-ext-btn" class="btn btn-s" style="display:none;margin-left:auto" onclick="openDeadlineExtension()">📅 Request deadline extension</button>
+        </div>
+        <!-- Inline reassign form -->
+        <div id="td-inline-reassign-box" style="display:none;margin-top:10px;background:var(--bg3);border:.5px solid var(--border);border-radius:var(--rsm);padding:14px">
+          <div style="font-size:12px;font-weight:600;color:var(--text2);margin-bottom:10px">👤 Reassign task</div>
+          <div style="margin-bottom:10px">
+            <label class="flbl">Assign to</label>
+            <select class="fsel" id="td-inline-reassign-select" style="font-size:13px"></select>
+          </div>
+          <div style="margin-bottom:10px">
+            <label class="flbl">Comment <span style="color:var(--text3);font-weight:400">(optional — will be added to comments)</span></label>
+            <textarea id="td-inline-reassign-comment" class="ftxt" placeholder="e.g. Passing this to Arjun — better suited for video work" style="min-height:50px;font-size:12px"></textarea>
+          </div>
+          <div style="display:flex;gap:6px">
+            <button class="btn btn-p btn-sm" onclick="confirmInlineReassign()">Reassign →</button>
+            <button class="btn btn-s btn-sm" onclick="document.getElementById('td-inline-reassign-box').style.display='none'">Cancel</button>
+          </div>
+        </div>
+        <!-- Deadline extension form -->
+        <div id="td-deadline-ext-box" style="display:none;margin-top:10px;background:var(--bg3);border:.5px solid var(--border);border-radius:var(--rsm);padding:12px">
+          <div style="font-size:12px;font-weight:600;color:var(--text2);margin-bottom:8px">📅 Request deadline extension</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px">
+            <div><label class="flbl">Proposed new date</label><input class="finp" type="date" id="td-ext-date" style="font-size:12px"/></div>
+          </div>
+          <textarea id="td-ext-reason" class="ftxt" placeholder="Reason for extension request... (SAM will review)" style="min-height:60px;font-size:12px;margin-bottom:8px"></textarea>
+          <div style="display:flex;gap:6px">
+            <button class="btn btn-p btn-sm" onclick="submitDeadlineExtension()">Send request →</button>
+            <button class="btn btn-s btn-sm" onclick="document.getElementById('td-deadline-ext-box').style.display='none'">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add member -->
+    <div class="modal" id="modal-add-member"><div class="modal-p">
+      <div class="mtit">Add team member</div><div class="msub">Create a new account for your team.</div>
+      <div class="form-row"><div class="fg2"><label class="flbl">Full name *</label><input class="finp" id="nm-name" placeholder="e.g. Amit Sharma"/></div><div class="fg2"><label class="flbl">Job title</label><input class="finp" id="nm-title" placeholder="e.g. Content Manager"/></div></div>
+      <div class="form-row"><div class="fg2"><label class="flbl">Username *</label><input class="finp" id="nm-user" placeholder="e.g. amit"/></div><div class="fg2"><label class="flbl">Role</label><select class="fsel" id="nm-role"><option value="super-admin">Super Admin</option><option value="sam">SAM — Strategic Account Manager</option><option value="specialist-seo" selected>SEO Specialist</option><option value="specialist-graphic">Graphic Specialist</option><option value="specialist-video">Video Specialist</option><option value="specialist-content">Content Specialist</option><option value="owner">Owner — Brand Stakeholder / Client</option><option value="co-owner">Co-Owner — Brand Co-Stakeholder</option></select></div></div>
+      <div class="form-row"><div class="fg2"><label class="flbl">Password *</label><input class="finp" id="nm-pass" type="password" placeholder="Min 6 characters"/></div><div class="fg2"><label class="flbl">Avatar colour</label><input type="color" class="finp" id="nm-color" value="#7c6af7" style="height:40px;padding:4px 6px;cursor:pointer"/></div></div>
+      <div class="fg2" style="margin-bottom:12px"><label class="flbl" style="margin-bottom:8px">Assign brands (optional)</label><div class="balist" id="new-member-brands"></div></div>
+      <div class="macts"><button class="mbtn c" onclick="closeModal()">Cancel</button><button class="mbtn ok" onclick="saveMember()">Create account →</button></div>
+    </div></div>
+
+    <!-- Edit member -->
+    <div class="modal" id="modal-edit-member"><div class="modal-p">
+      <div class="mtit">Edit member</div><div class="msub" id="edit-member-sub"></div>
+      <div class="form-row"><div class="fg2"><label class="flbl">Full name *</label><input class="finp" id="em-name"/></div><div class="fg2"><label class="flbl">Job title</label><input class="finp" id="em-title"/></div></div>
+      <div class="form-row"><div class="fg2"><label class="flbl">Username</label><input class="finp" id="em-user" readonly style="opacity:.5"/></div><div class="fg2"><label class="flbl">Role</label><select class="fsel" id="em-role"><option value="super-admin">Super Admin</option><option value="sam">SAM — Strategic Account Manager</option><option value="specialist-seo">SEO Specialist</option><option value="specialist-graphic">Graphic Specialist</option><option value="specialist-video">Video Specialist</option><option value="specialist-content">Content Specialist</option><option value="owner">Owner — Brand Stakeholder / Client</option><option value="co-owner">Co-Owner — Brand Co-Stakeholder</option></select></div></div>
+      <div class="fg2" style="margin-bottom:12px"><label class="flbl" style="margin-bottom:8px">Assigned brands</label><div class="balist" id="edit-member-brands"></div></div>
+      <div class="macts"><button class="mbtn c" onclick="closeModal()">Cancel</button><button class="mbtn ok" onclick="updateMember()">Save changes</button></div>
+    </div></div>
+
+    <!-- Reset password -->
+    <div class="modal sm" id="modal-reset-pass"><div class="modal-p">
+      <div class="mtit">Reset password</div><div class="msub" id="reset-pass-sub"></div>
+      <div class="form-row full"><div class="fg2"><label class="flbl">New password *</label><input class="finp" id="rp-pass" type="password" placeholder="Min 6 characters"/></div></div>
+      <div class="form-row full"><div class="fg2"><label class="flbl">Confirm password *</label><input class="finp" id="rp-confirm" type="password" placeholder="Repeat password"/></div></div>
+      <div class="macts"><button class="mbtn c" onclick="closeModal()">Cancel</button><button class="mbtn ok" onclick="confirmResetPass()">Reset password</button></div>
+    </div></div>
+
+    <!-- Delete member -->
+    <div class="modal sm" id="modal-delete-member"><div class="modal-p"><div class="mtit">Delete member?</div><div class="msub" id="del-member-sub"></div><div class="dbox">⚠ Permanently deletes the account. All access is removed immediately.</div><div class="macts"><button class="mbtn c" onclick="closeModal()">Cancel</button><button class="mbtn d" onclick="confirmDeleteMember()">Delete account</button></div></div></div>
+
+    <!-- Deactivate member -->
+    <div class="modal sm" id="modal-deactivate-member"><div class="modal-p"><div class="mtit" id="deact-title">Deactivate member?</div><div class="msub" id="deact-sub"></div><div class="macts"><button class="mbtn c" onclick="closeModal()">Cancel</button><button class="mbtn a" onclick="confirmDeactivate()">Confirm</button></div></div></div>
+
+    <!-- Add campaign -->
+    <div class="modal" id="modal-add-campaign" style="max-height:90vh;overflow-y:auto"><div class="modal-p">
+      <div class="mtit">New campaign</div><div class="msub" id="camp-modal-sub">Campaign for this brand</div>
+
+      <!-- Step 1: Name + Budget -->
+      <div class="form-row"><div class="fg2"><label class="flbl">Campaign name *</label><input class="finp" id="camp-name" placeholder="e.g. Brand recall, Product launch..."/></div><div class="fg2"><label class="flbl">Budget type</label><div class="po-toggle"><button class="po-btn paid-on" id="po-paid" onclick="setPO('paid')">💰 Paid</button><div class="po-divider"></div><button class="po-btn" id="po-organic" onclick="setPO('organic')">🌱 Organic</button><div class="po-divider"></div><button class="po-btn" id="po-both" onclick="setPO('both')">⚡ Both</button></div></div></div>
+      <div class="form-row"><div class="fg2"><label class="flbl">Start date</label><input class="finp" id="camp-start" type="date"/></div><div class="fg2"><label class="flbl">Campaign type</label><div class="po-toggle"><button class="po-btn both-on" id="camp-monthly-btn" onclick="setCampType('monthly')">📅 Monthly</button><div class="po-divider"></div><button class="po-btn" id="camp-ongoing-btn" onclick="setCampType('ongoing')">🔄 Ongoing</button></div></div></div>
+
+      <!-- Step 3: TEMCA -->
+      <div style="font-size:11px;font-weight:500;color:var(--text2);margin-bottom:8px;text-transform:uppercase;letter-spacing:.05em">TEMCA</div>
+      <div class="form-row full"><div class="fg2"><label class="flbl">T — Target audience <span style="color:var(--text3);font-weight:400">(used if no focus areas, or as fallback)</span></label><textarea class="ftxt" id="camp-T" placeholder="Who is this campaign targeting?" style="min-height:46px"></textarea></div></div>
+      <div class="form-row full"><div class="fg2"><label class="flbl">E — Elevator pitch</label><textarea class="ftxt" id="camp-E" placeholder="1–2 sentence value proposition..." style="min-height:46px"></textarea></div></div>
+      <div class="form-row full"><div class="fg2"><label class="flbl">M — Medium <span style="color:var(--text3);font-weight:400">(select all that apply)</span></label><div class="med-chips" id="med-chips" onclick="toggleMedOpts()"><span class="med-ph" id="med-ph">Click to select platforms...</span></div><div class="med-opts" id="med-opts"><div class="med-opt" onclick="togMed('LinkedIn',event)">LinkedIn</div><div class="med-opt" onclick="togMed('Instagram',event)">Instagram</div><div class="med-opt" onclick="togMed('Facebook',event)">Facebook</div><div class="med-opt" onclick="togMed('Google Ads',event)">Google Ads</div><div class="med-opt" onclick="togMed('YouTube',event)">YouTube</div><div class="med-opt" onclick="togMed('Twitter/X',event)">Twitter/X</div><div class="med-opt" onclick="togMed('WhatsApp',event)">WhatsApp</div><div class="med-opt" onclick="togMed('Email',event)">Email</div><div class="med-opt" onclick="togMed('SEO/Blog',event)">SEO/Blog</div><div class="med-opt" onclick="togMed('PR/Media',event)">PR/Media</div><div class="med-opt" onclick="togMed('Events',event)">Events</div><div class="med-opt" onclick="togMed('OOH/Print',event)">OOH/Print</div></div></div></div>
+      <div class="form-row full"><div class="fg2"><label class="flbl">C — Creative style <span style="color:var(--text3);font-weight:400">(select all that apply)</span></label><div class="cre-chips" id="cre-chips" onclick="toggleCreOpts()"><span class="cre-ph" id="cre-ph">Click to select creative formats...</span></div><div class="cre-opts" id="cre-opts"><div class="cre-opt" onclick="togCre('Video',event)">Video</div><div class="cre-opt" onclick="togCre('Reel / Short',event)">Reel / Short</div><div class="cre-opt" onclick="togCre('Static image',event)">Static image</div><div class="cre-opt" onclick="togCre('Carousel',event)">Carousel</div><div class="cre-opt" onclick="togCre('Article / Blog',event)">Article / Blog</div><div class="cre-opt" onclick="togCre('Infographic',event)">Infographic</div><div class="cre-opt" onclick="togCre('Story',event)">Story</div><div class="cre-opt" onclick="togCre('Podcast',event)">Podcast</div><div class="cre-opt other" onclick="showOtherInp(event)">+ Other</div></div><div class="other-wrap" id="other-wrap"><input class="other-inp" id="other-inp" placeholder="Enter custom format..."/><button class="other-add" onclick="addOtherCre()">Add</button></div></div></div>
+      <div class="form-row full"><div class="fg2"><label class="flbl">Status</label><select class="fsel" id="camp-status" onchange="checkCampStatus(this)"><option value="planning">Planning</option><option value="active">Active (SAM approval required)</option><option value="paused">Paused</option><option value="complete">Complete</option></select><div id="camp-approve-note" style="font-size:11px;color:var(--amber);margin-top:4px;display:none">⚠ Only SAM can activate a campaign</div></div></div>
+
+      <div class="macts"><button class="mbtn c" onclick="closeModal()">Cancel</button><button class="mbtn ok" onclick="saveCampaign()">Save campaign →</button></div>
+    </div></div>
+
+  </div>
+
+  <input type="file" id="file-input" multiple accept="image/*,.pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx" onchange="handleFileUpload(event)"/>
+  <input type="file" id="task-file-input" multiple accept="image/*,.pdf,.doc,.docx,.ppt,.pptx" onchange="handleTaskFile(event)"/>
+  <div class="toastEl" id="toastEl"><div class="tdot" id="tdot"></div><span id="tmsg"></span></div>
+</div>
+

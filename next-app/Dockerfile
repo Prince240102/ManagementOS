@@ -9,7 +9,7 @@ COPY next-app/src/ ./src/
 COPY next-app/public/ ./public/
 COPY next-app/migrations/ ./migrations/
 COPY next-app/scripts/ ./scripts/
-COPY marketingos-v8/src/legacy ./legacy/
+COPY next-app/legacy ./legacy/
 
 ENV DOCKER=1
 ENV LEGACY_ROOT=/build/legacy
@@ -30,7 +30,7 @@ COPY --from=builder /build/package.json ./
 COPY --from=builder /build/dist/standalone ./
 COPY --from=builder /build/dist/static ./dist/static
 
-COPY marketingos-v8/src/legacy ./legacy
+COPY next-app/legacy ./legacy
 
 EXPOSE 3000
 

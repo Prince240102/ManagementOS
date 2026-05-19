@@ -5,7 +5,7 @@ import path from 'node:path'
 export const runtime = 'nodejs'
 
 function legacyRoot() {
-  return process.env.LEGACY_ROOT || path.join(process.cwd(), '..', 'marketingos-v8', 'src', 'legacy')
+  return process.env.LEGACY_ROOT || path.join(process.cwd(), 'legacy')
 }
 
 export async function GET() {
