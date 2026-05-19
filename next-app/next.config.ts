@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  distDir: "dist",
+  distDir: process.env.DOCKER ? "dist" : undefined,
   output: process.env.DOCKER ? "standalone" : undefined,
 };
 
