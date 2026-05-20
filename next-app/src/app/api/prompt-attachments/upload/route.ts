@@ -1,13 +1,7 @@
 import { NextResponse } from 'next/server'
-import path from 'node:path'
-import { writeFile, mkdir, stat } from 'node:fs/promises'
 import { headObject, putObject } from '@/lib/objectStore'
 
 export const runtime = 'nodejs'
-
-function getUploadsRoot() {
-  return process.env.UPLOADS_DIR || path.join(process.cwd(), 'uploads')
-}
 
 function safeRelativePath(p: string) {
   const rel = p.replace(/^\/+/, '')
@@ -27,33 +21,16 @@ export async function POST(req: Request) {
 
   const destRel = safeRelativePath(reqPath)
 
-  // Prefer object storage when configured; fall back to local disk.
   if (upsert !== 'true') {
-    try {
-      const s3Head = await headObject(destRel)
-      if (s3Head.ok) {
-        return NextResponse.json({ error: 'exists' }, { status: 409 })
-      }
-    } catch {
-      // ignore
-    }
-
-    try {
-      const destAbs = path.join(getUploadsRoot(), 'prompt-attachments', destRel)
-      await stat(destAbs)
+    const s3Head = await headObject(destRel)
+    if (s3Head.ok) {
       return NextResponse.json({ error: 'exists' }, { status: 409 })
-    } catch {
-      // ignore
     }
   }
 
   const bytes = new Uint8Array(await file.arrayBuffer())
   const s3Put = await putObject(destRel, bytes, file.type || undefined)
-  if (!s3Put.ok) {
-    const destAbs = path.join(getUploadsRoot(), 'prompt-attachments', destRel)
-    await mkdir(path.dirname(destAbs), { recursive: true })
-    await writeFile(destAbs, bytes)
-  }
+  if (!s3Put.ok) return NextResponse.json({ error: 's3 not configured' }, { status: 500 })
 
   return NextResponse.json({ path: destRel })
 }

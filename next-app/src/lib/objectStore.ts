@@ -45,8 +45,11 @@ function toBuffer(body: unknown) {
       body.on('error', reject)
     })
   }
-  if (body && typeof body === 'object' && (body as any).transformToByteArray) {
-    return (body as any).transformToByteArray().then((b: Uint8Array) => Buffer.from(b))
+  if (body && typeof body === 'object') {
+    const maybe = body as { transformToByteArray?: () => Promise<Uint8Array> }
+    if (typeof maybe.transformToByteArray === 'function') {
+      return maybe.transformToByteArray().then((b) => Buffer.from(b))
+    }
   }
   throw new Error('Unsupported body type')
 }

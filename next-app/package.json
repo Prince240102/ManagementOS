@@ -8,6 +8,7 @@
     "build": "next build",
     "start": "next start",
     "migrate": "node --enable-source-maps --import tsx scripts/migrate.ts",
+    "create-user": "node --enable-source-maps --import tsx scripts/create-user.ts",
     "smoke": "node --enable-source-maps --import tsx scripts/smoke.ts",
     "lint": "eslint"
   },

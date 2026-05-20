@@ -8,18 +8,7 @@
     <div class="fg"><label class="fl">Password</label><input class="fi" id="lp" type="password" placeholder="Enter password"/></div>
     <button class="lbtn" onclick="doLogin()">Sign in →</button>
     <div class="lerr" id="lerr">Incorrect username or password</div>
-    <div class="demo-accs"><div class="demo-lbl">Quick access</div><div class="demo-list" id="demo-list">
-      <div class="demo-item" onclick="quickLogin('admin','admin123')"><div class="dii"><div class="dav" style="background:#7c6af722;color:#7c6af7">RK</div><div><div style="font-size:12px;font-weight:500">Raj Kumar</div><div style="font-size:11px;color:var(--text3)">Super Admin</div></div></div><div style="font-size:11px;color:var(--accent2)">Use →</div></div>
-      <div class="demo-item" onclick="quickLogin('priya','member123')"><div class="dii"><div class="dav" style="background:#4eca8b22;color:#4eca8b">PS</div><div><div style="font-size:12px;font-weight:500">Priya Shah</div><div style="font-size:11px;color:var(--text3)">SAM · Account Manager</div></div></div><div style="font-size:11px;color:var(--accent2)">Use →</div></div>
-      <div class="demo-item" onclick="quickLogin('arjun','member123')"><div class="dii"><div class="dav" style="background:#5baef722;color:#5baef7">AM</div><div><div style="font-size:12px;font-weight:500">Arjun Mehta</div><div style="font-size:11px;color:var(--text3)">Specialist · SEO</div></div></div><div style="font-size:11px;color:var(--accent2)">Use →</div></div>
-      <div class="demo-item" onclick="quickLogin('client','client123')"><div class="dii"><div class="dav" style="background:#2dd4bf22;color:#2dd4bf">AK</div><div><div style="font-size:12px;font-weight:500">Aisha Kapoor</div><div style="font-size:11px;color:var(--text3)">Owner · TechNest</div></div></div><div style="font-size:11px;color:var(--accent2)">Use →</div></div>
-      <div class="demo-item" onclick="quickLogin('dev','client123')"><div class="dii"><div class="dav" style="background:#a78bfa22;color:#a78bfa">DP</div><div><div style="font-size:12px;font-weight:500">Dev Patel</div><div style="font-size:11px;color:var(--text3)">Co-Owner · AutoDrive</div></div></div><div style="font-size:11px;color:var(--accent2)">Use →</div></div>
-    </div>
-    <div style="margin-top:16px;padding-top:14px;border-top:.5px solid var(--border);text-align:center">
-      <div style="font-size:11px;color:var(--text3);margin-bottom:8px">If login is not working, reset app data</div>
-      <button onclick="hardReset()" style="background:var(--rbg);border:.5px solid var(--rborder);border-radius:var(--rsm);padding:6px 16px;color:var(--red);font-family:var(--font);font-size:12px;cursor:pointer">↺ Reset &amp; reload</button>
-    </div>
-    </div>
+
   </div>
 </div>
 
@@ -778,4 +767,3 @@
   <input type="file" id="task-file-input" multiple accept="image/*,.pdf,.doc,.docx,.ppt,.pptx" onchange="handleTaskFile(event)"/>
   <div class="toastEl" id="toastEl"><div class="tdot" id="tdot"></div><span id="tmsg"></span></div>
 </div>
-
